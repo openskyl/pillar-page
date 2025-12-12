@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>2026 投資理財攻略｜理財規劃、職場請假、高息活期一頁掌握</title>
+<meta name="description" content="2026 投資理財攻略：最新理財規劃、職場請假攻略、高息活期新選擇、每週精選、排行、標籤聚合與 FAQ，一站取得實用教學與比較工具。">
+<link rel="canonical" href="https://www.example.com/2026-finance-guide/">
+
+<!-- Breadcrumb / CollectionPage (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "name":"2026 投資理財攻略",
+  "headline":"2026 投資理財攻略｜理財規劃、職場請假、高息活期一頁掌握",
+  "description":"匯集 2026 年最實用的理財文章、工具比較與專題，包含理財規劃、職場請假攻略與高息活期方案。",
+  "publisher":{"@type":"Organization","name":"YourSite","url":"https://www.example.com"}
+}
+</script>
+
+<!-- FAQ Schema (示例，部署時可動態產出更多) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"2026 年該如何開始理財？","acceptedAnswer":{"@type":"Answer","text":"從建立緊急預備金、檢視保險、設定年度預算，再逐步建立長期投資組合開始。"}},
+    {"@type":"Question","name":"高息活期值得放嗎？","acceptedAnswer":{"@type":"Answer","text":"視個人資金需求與風險承受度而定，若需要流動性且銀行或數位帳戶利率具競爭力，可考慮分批配置。"}},
+    {"@type":"Question","name":"職場請假有哪些常見誤區？","acceptedAnswer":{"@type":"Answer","text":"常見誤區包括申請時間不明、未留替代作業、假別規則不熟悉，建議提前與主管溝通並確認公司規定。"}}
+  ]
+}
+</script>
+
+<style>
+  /* Reset + base */
+  :root{
+    --maxw:1200px;
+    --brand:#0b4a78;
+    --accent:#c69d3c;
+    --muted:#6b7280;
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --radius:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;font-family: "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:#111;line-height:1.6}
+  a{color:var(--brand);text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:20px}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;padding:28px 20px;border-radius:var(--radius);background:linear-gradient(180deg,#ffffff,#fbfdff);box-shadow:0 6px 18px rgba(10,20,30,0.04);margin-top:16px}
+  .kicker{display:inline-block;background:#eef6ff;color:var(--brand);padding:6px 10px;border-radius:20px;font-weight:700;font-size:13px}
+  h1{font-size:28px;margin:10px 0;color:var(--brand)}
+  p.lead{margin:0 0 14px;color:var(--muted);max-width:72ch}
+  .searchbar{display:flex;gap:8px;margin-top:8px}
+  .searchbar input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid #e6eef7}
+  .btn{background:var(--brand);color:#fff;padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+  .btn.alt{background:#fff;border:1px solid #e6eef7;color:var(--brand)}
+  .hero-right{padding:12px;border-radius:10px;background:linear-gradient(180deg,#fbfdff,#f7fbff);border:1px solid #eef6fb}
+  .market-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .stat{background:#fff;padding:8px;border-radius:8px;border:1px solid #eef6fb;min-width:100px;text-align:center}
+
+  /* layout */
+  .layout{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:20px}
+  /* sub-nav */
+  .sub-nav{display:flex;gap:12px;flex-wrap:wrap}
+  .sub-card{background:var(--card);padding:14px;border-radius:12px;border:1px solid #eef3f9;min-width:220px;flex:1 1 240px;box-shadow:0 1px 2px rgba(10,20,30,0.02)}
+  .sub-card h3{margin:0 0 6px;font-size:16px;color:var(--brand)}
+  .sub-card p{margin:0;color:var(--muted);font-size:14px}
+
+  /* section titles */
+  .section{background:var(--card);padding:16px;border-radius:12px;border:1px solid #eef3f9}
+  .section-title{display:flex;align-items:end;justify-content:space-between;margin:0 0 12px}
+  .section-title h2{margin:0;font-size:18px;color:var(--brand)}
+  .section-title a{color:var(--muted);font-size:14px}
+
+  /* news list */
+  .news-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  .news-item{display:flex;gap:12px;align-items:flex-start;padding:10px;border-radius:10px}
+  .news-item a{display:block}
+  .news-item .thumb{width:120px;height:80px;background:#eef4fb;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+  .news-item h3{margin:0 0 6px;font-size:16px}
+  .meta{color:var(--muted);font-size:13px}
+
+  /* weekly + ranking */
+  .weekly-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ranking ol{padding-left:18px;margin:0}
+  .featured-item{padding:10px;border-radius:10px;border:1px solid #eef6fb;background:#fff}
+
+  /* tags */
+  .tags{display:flex;gap:8px;flex-wrap:wrap}
+  .tag{padding:6px 10px;background:#f1f5f9;border-radius:999px;font-size:13px;color:var(--brand);border:1px solid #e8f0fb}
+
+  /* faq */
+  .faq .faq-item{border-top:1px dashed #eef3f9;padding:12px 0}
+  .faq .faq-item h4{margin:0 0 6px;font-size:15px}
+  .faq .faq-item p{margin:0;color:var(--muted)}
+
+  /* aside */
+  aside .card{background:var(--card);padding:12px;border-radius:12px;border:1px solid #eef3f9;margin-bottom:12px}
+  .aside-list{list-style:none;padding:0;margin:0}
+  .aside-list li{padding:8px 0;border-bottom:1px solid #f3f6fa}
+
+  /* CTA */
+  .cta{display:flex;gap:12px;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(90deg,#fffaf0,#fffdf7);border:1px solid #fff0d9}
+
+  /* footer */
+  footer{margin-top:28px;padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
+
+  /* responsive */
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr;gap:12px}
+    .layout{grid-template-columns:1fr}
+    .weekly-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="頁首">
+    <div>
+      <span class="kicker">2026 投資理財攻略</span>
+      <h1>2026 投資理財攻略 — 理財規劃、職場請假、高息活期一頁掌握</h1>
+      <p class="lead">匯聚 2026 年最實用的理財策略、工具比較與專題分析。包含理財規劃、職場請假攻略與高息活期方案，提供可操作的步驟與比較表。</p>
+
+      <div class="searchbar" role="search" aria-label="站內搜尋">
+        <input type="search" placeholder="搜尋：活期、理財規劃、職場請假..." aria-label="搜尋理財文章">
+        <button class="btn" aria-label="搜尋">搜尋</button>
+        <button class="btn alt" aria-label="訂閱每週精選">訂閱每週精選</button>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn alt" href="/compare/high-interest/">高息活期比較</a>
+        <a class="btn alt" href="/tools/budget/">年度預算工具</a>
+      </div>
+    </div>
+
+    <aside class="hero-right" aria-label="快速數據摘要">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong>本週重點</strong>
+        <small class="meta">更新：2026-01-12</small>
+      </div>
+      <div class="market-stats">
+        <div class="stat"><div style="font-weight:800">2.15%</div><div class="meta" style="font-size:13px">數位帳戶平均活期</div></div>
+        <div class="stat"><div style="font-weight:800">+22%</div><div class="meta" style="font-size:13px">高息話題搜尋量</div></div>
+        <div class="stat"><div style="font-weight:800">TOP3</div><div class="meta" style="font-size:13px">熱門關鍵字</div></div>
+      </div>
+
+      <div style="margin-top:12px;font-size:13px;color:var(--muted)">
+        <div><strong>編輯觀點：</strong>高息活存風潮未過，建議採分層資金配置以兼顧流動性與收益。</div>
+      </div>
+    </aside>
+  </header>
+
+  <!-- 子分類導覽 -->
+  <section class="section" aria-labelledby="subnav" style="margin-top:18px">
+    <div class="section-title">
+      <h2 id="subnav">熱門子分類</h2>
+      <a href="/2026-finance-guide/all/">查看全部</a>
+    </div>
+
+    <div class="sub-nav">
+      <a class="sub-card" href="/2026-finance-guide/planning/">
+        <h3>2026 理財規劃</h3>
+        <p>資產配置、保險檢視、退休與稅務規劃。</p>
+      </a>
+
+      <a class="sub-card" href="/2026-finance-guide/leave/">
+        <h3>2026 職場請假攻略</h3>
+        <p>年假安排、補休計算、特休與法規要點。</p>
+      </a>
+
+      <a class="sub-card" href="/2026-finance-guide/high-interest/">
+        <h3>高息活期新選擇</h3>
+        <p>數位帳戶、行動銀行與限時優惠比較。</p>
+      </a>
+    </div>
+  </section>
+
+  <div class="layout" role="main">
+    <!-- 主欄 -->
+    <section style="padding:0">
+      <!-- 每週精選 + 排行榜 -->
+      <section class="section" aria-labelledby="weekly">
+        <div class="section-title">
+          <h2 id="weekly">本週精選</h2>
+          <a href="/2026-finance-guide/weekly/">每週專題</a>
+        </div>
+
+        <div class="weekly-grid">
+          <div class="ranking" aria-labelledby="rank">
+            <h3 id="rank" class="sub-title">熱門排行</h3>
+            <ol class="rank-list">
+              <li><a href="/2026-finance-guide/high-interest/top10">高息活期 TOP10（2026 即時）</a></li>
+              <li><a href="/2026-finance-guide/etf/compare-2026">ETF vs 活存：2026 該怎麼選？</a></li>
+              <li><a href="/2026-finance-guide/leave/policy-2026">職場請假最新法規整理</a></li>
+              <li><a href="/2026-finance-guide/planning/retirement-2026">退休規劃：50 歲前要知道的 7 件事</a></li>
+            </ol>
+          </div>
+
+          <div class="featured-articles" aria-labelledby="feat">
+            <h3 id="feat" class="sub-title">深度專題</h3>
+
+            <article class="featured-item">
+              <a href="/2026-finance-guide/planning/asset-allocation-2026">
+                <h4>2026 年資產配置實務：現金、債券、股票、替代投資如何分層？</h4>
+                <p class="meta">專題 • 2026-01-08</p>
+                <p style="margin:8px 0 0;color:var(--muted)">附 Excel 模板與情境測試—讓你的資產在不同利率情境下更穩健。</p>
+              </a>
+            </article>
+
+            <article class="featured-item" style="margin-top:10px">
+              <a href="/2026-finance-guide/high-interest/deposit-comparison">
+                <h4>數位銀行高息活期完整比較：額度、條款與提款限制一次看懂</h4>
+                <p class="meta">比較 • 2026-01-05</p>
+                <p style="margin:8px 0 0;color:var(--muted)">含每家年化利率、門檻、綁約與優惠活動備註。</p>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 最新內容列表 -->
+      <section class="section" aria-labelledby="latest" style="margin-top:14px">
+        <div class="section-title">
+          <h2 id="latest">最新內容</h2>
+          <a href="/2026-finance-guide/new/">查看全部最新</a>
+        </div>
+
+        <ul class="news-list" aria-live="polite">
+          <li class="news-item">
+            <div class="thumb" aria-hidden="true">圖</div>
+            <div>
+              <a href="/2026-finance-guide/high-interest/offer-2301"><h3>三家銀行推出限時高息方案，實際年化比較</h3></a>
+              <div class="meta">2026-01-12 · 高息活期</div>
+            </div>
+          </li>
+
+          <li class="news-item">
+            <div class="thumb" aria-hidden="true">圖</div>
+            <div>
+              <a href="/2026-finance-guide/planning/budget-2026"><h3>年度預算這樣做：3 個步驟把錢留在你想要的地方</h3></a>
+              <div class="meta">2026-01-10 · 理財規劃</div>
+            </div>
+          </li>
+
+          <li class="news-item">
+            <div class="thumb" aria-hidden="true">圖</div>
+            <div>
+              <a href="/2026-finance-guide/leave/take-leave-tips"><h3>年假如何排？避開 3 個常見錯誤與實務範例</h3></a>
+              <div class="meta">2026-01-09 · 職場請假攻略</div>
+            </div>
+          </li>
+        </ul>
+
+        <div style="margin-top:12px">
+          <a class="btn" href="/2026-finance-guide/all/">載入更多內容</a>
+        </div>
+      </section>
+
+      <!-- Tags Hub -->
+      <section class="section" style="margin-top:14px" aria-labelledby="tags">
+        <div class="section-title">
+          <h2 id="tags">熱門標籤</h2>
+          <a href="/tags/">查看標籤大全</a>
+        </div>
+        <div class="tags" role="navigation" aria-label="熱門標籤">
+          <a class="tag" href="/tags/high-interest/">高息活期</a>
+          <a class="tag" href="/tags/etf/">ETF</a>
+          <a class="tag" href="/tags/budget/">預算</a>
+          <a class="tag" href="/tags/leave/">請假攻略</a>
+          <a class="tag" href="/tags/tax/">報稅</a>
+          <a class="tag" href="/tags/digital-bank/">數位銀行</a>
+          <a class="tag" href="/tags/retirement/">退休</a>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section faq" style="margin-top:14px" aria-labelledby="faqTitle">
+        <div class="section-title">
+          <h2 id="faqTitle">常見問題（FAQ）</h2>
+          <a href="/2026-finance-guide/faq/">更多常見問題</a>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <h4>2026 年應該如何開始理財？</h4>
+            <p>建議先建立 3～6 個月緊急預備金、檢視既有保險是否足夠、設定可達成的年度儲蓄目標，並逐步學習被動投資工具（如 ETF）。</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>高息活期該如何選擇？</h4>
+            <p>比較年化利率、提領限制、優惠條款與額度上限；並注意是否需綁定條件（如薪轉或綁定投資）。</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>職場請假有哪些注意事項？</h4>
+            <p>先了解公司制度與勞基法相關規定，提前與主管溝通；若牽涉到特休或補休，建議以團隊運作為優先考量。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section cta" style="margin-top:14px" aria-label="參考工具">
+        <div>
+          <h3 style="margin:0 0 6px">想進一步優化你的理財規劃？</h3>
+          <p style="margin:0;color:var(--muted)">使用我們的比較工具與年度預算模板，快速檢視可提高收益或減少費用的環節。</p>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:8px">
+          <a class="btn" href="/compare/high-interest/">高息活期比較</a>
+          <a class="btn alt" href="/tools/budget/">下載年度預算表</a>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- 側欄 -->
+    <aside aria-label="側欄" style="padding-left:6px">
+      <div class="card">
+        <h3 style="margin:0 0 8px">熱門文章排行</h3>
+        <ul class="aside-list">
+          <li><a href="/2026-finance-guide/high-interest/top10">高息活期 TOP10（更新）</a></li>
+          <li><a href="/2026-finance-guide/planning/retire-check">退休檢核表：你準備好了嗎？</a></li>
+          <li><a href="/2026-finance-guide/leave/faq">請假實務 Q&A</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 8px">工具推薦</h3>
+        <ul class="aside-list">
+          <li><a href="/tools/saving-calculator/">儲蓄計算機</a></li>
+          <li><a href="/tools/budget/">年度預算表</a></li>
+          <li><a href="/compare/credit-card/">信用卡比較</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 8px">訂閱每週精選</h3>
+        <form action="/subscribe" method="post" aria-label="訂閱表單">
+          <input type="email" name="email" placeholder="name@example.com" required style="width:100%;padding:8px;border-radius:8px;border:1px solid #eef6fb;margin-bottom:8px" />
+          <div style="display:flex;gap:8px">
+            <button class="btn" type="submit">訂閱</button>
+            <a class="btn alt" href="/subscribe/options">選擇偏好</a>
+          </div>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <small>© 2026 YourSite。資料僅供參考，非投資建議。</small>
+  </footer>
+</div>
+
+</body>
+</html>
