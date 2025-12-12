@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>投資增值全攻略：股票、加密貨幣、外匯、ETF 策略與平台比較 - MoneyDaily</title>
+    <meta name="description" content="MoneyDaily 投資增值中心：提供股票證券、加密貨幣、外匯交易、ETF/基金的深度策略分析。助您找到最佳交易平台，實現財富穩健增長。">
+    <link rel="canonical" href="invest.html" />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "如何選擇適合自己的股票投資策略？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "新手建議從「價值投資」或「ETF 定投」開始，重點在於選取穩健、具備長期成長潛力的標的。專業投資者則可嘗試技術分析或波段交易，但風險較高。"
+        }
+      },{
+        "@type": "Question",
+        "name": "加密貨幣長期投資是否可行？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "加密貨幣市場波動性高，長期投資應將風險控制在可承受範圍內。建議投資主流幣種（如 BTC, ETH），並採用 DCA（平均成本法）分散風險。"
+        }
+      },{
+        "@type": "Question",
+        "name": "基金定投与一次性投資的差別？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "定投（DCA）是定期投入固定金額，能有效攤平高點買入的風險。一次性投資則可能因入場時機不佳而面臨較大回撤，但若抓準時機，潛在報酬率更高。"
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables & Base Styles (與前頁保持一致) */
+        :root {
+            --maxw: 1200px;
+            --brand: #0264C1; 
+            --brand-dark: #014b90;
+            --accent: #FFC300; 
+            --muted: #6b7280;
+            --bg: #f5f8fc;
+            --card: #ffffff;
+            --radius: 12px;
+            --border-light: #eef3f9;
+            --success: #10b981; 
+            --danger: #ef4444; /* 紅色，用於跌幅 */
+            --nav-height: 60px;
+        }
+
+        /* Base Styles and Layout */
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Noto Sans TC", "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: #333; line-height: 1.6; padding-top: var(--nav-height); }
+        h1, h2, h3 { color: #111; margin-top: 0; line-height: 1.3; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 20px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px; }
+        .btn-primary { background: var(--brand); color: #fff; }
+        .btn-primary:hover { background: var(--brand-dark); }
+        .btn-sm { padding: 6px 12px; font-size: 13px; }
+        
+        /* 導航 (確保懸浮) */
+        .sticky-nav { position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height); background: linear-gradient(90deg, #0264C1, #014b90); z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; justify-content: center; }
+        .nav-inner { width: 100%; max-width: var(--maxw); display: flex; align-items: center; padding: 0 20px; }
+        .nav-menu { display: flex; width: 100%; justify-content: space-between; height: 100%; }
+        .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-item > a { color: #fff; font-size: 15px; font-weight: 500; padding: 0 10px; opacity: 0.9; }
+        .nav-item:hover > a { opacity: 1; background: rgba(255,255,255,0.1); }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 220px; box-shadow: 0 6px 15px rgba(0,0,0,0.15); border-top: 3px solid var(--accent); padding: 10px 0; border-radius: 0 0 6px 6px; z-index: 10000;}
+        .nav-item:hover .dropdown { display: block; }
+        .dropdown li a { display: block; padding: 10px 20px; color: #333; font-size: 14px; border-bottom: 1px solid #f5f5f5; }
+        .dropdown li a:hover { background: #f0f7ff; color: var(--brand); padding-left: 25px; }
+
+
+        /* ==================================== */
+        /* A. 英雄區 (Hero) */
+        /* ==================================== */
+        .hero-invest {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, #fff, #f0f7ff);
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-light);
+        }
+        .hero-invest h1 { font-size: 36px; color: var(--brand-dark); margin-bottom: 10px; }
+        .hero-invest p { max-width: 800px; margin: 0 auto 30px; color: var(--muted); font-size: 18px; }
+
+        /* ==================================== */
+        /* B. 即時數據模塊 (Market Snapshot) */
+        /* ==================================== */
+        .market-snap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        .market-item {
+            text-align: center;
+            border-right: 1px solid var(--border-light);
+        }
+        .market-item:last-child { border-right: none; }
+        .market-label { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+        .market-value { font-size: 20px; font-weight: 700; line-height: 1.2; }
+        .market-change { font-size: 13px; font-weight: 600; margin-top: 3px; }
+        .change-up { color: var(--success); }
+        .change-down { color: var(--danger); }
+        
+        @media (max-width: 768px) {
+            .market-snap { grid-template-columns: 1fr 1fr; }
+            .market-item { border-right: none; border-bottom: 1px dashed var(--border-light); padding-bottom: 10px; margin-bottom: 10px; }
+            .market-item:nth-child(2) { border-right: none; }
+            .market-item:nth-child(3) { border-right: none; }
+            .market-item:last-child { border-bottom: none; margin-bottom: 0; }
+        }
+
+        /* ==================================== */
+        /* C. 核心入口 (Pillars Entry) */
+        /* ==================================== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .pillar-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--brand);
+        }
+        .pillar-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            width: 60px; height: 60px;
+            background: #eef6ff;
+            color: var(--brand);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .pillar-card h3 { font-size: 20px; margin-bottom: 10px; }
+        .pillar-card p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+        .pillar-link { font-weight: 700; color: var(--brand); display: flex; align-items: center; }
+
+        /* ==================================== */
+        /* D. 工具與平台導流 (Comparison CTA) */
+        /* ==================================== */
+        .comparison-cta-strip {
+            background: var(--brand);
+            color: #fff;
+            padding: 30px;
+            border-radius: var(--radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .comparison-cta-strip h3 { color: #fff; margin-bottom: 5px; }
+        .comparison-cta-strip p { opacity: 0.9; margin: 0; font-size: 15px; }
+        .btn-accent { background: var(--accent); color: var(--brand-dark); }
+        .btn-accent:hover { background: #ffdf7c; }
+        
+        @media (max-width: 768px) {
+            .comparison-cta-strip { flex-direction: column; text-align: center; gap: 20px; }
+        }
+        
+        /* ==================================== */
+        /* E. 內容聚合區 (Content Feed) */
+        /* ==================================== */
+        .content-feed-invest {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* 左側文章，右側熱門 */
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .main-articles h2 { font-size: 24px; margin-bottom: 20px; }
+        
+        .article-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            padding: 20px;
+            border: 1px solid var(--border-light);
+        }
+        .article-card:hover { background: #fafafa; }
+        .article-card h4 { font-size: 18px; margin-bottom: 8px; color: var(--brand-dark); }
+        .article-meta { font-size: 13px; color: var(--muted); display: flex; gap: 15px; }
+        .article-tag { 
+            background: #eef6ff; 
+            color: var(--brand); 
+            padding: 2px 8px; 
+            border-radius: 4px; 
+            font-weight: 600; 
+            font-size: 12px;
+        }
+
+        .side-popular { background: #fff; padding: 20px; border-radius: var(--radius); border: 1px solid var(--border-light); }
+        .side-popular h3 { font-size: 18px; color: var(--brand); margin-bottom: 15px; }
+        .side-list li { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dotted var(--border-light); }
+        .side-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .side-list a { font-size: 14px; line-height: 1.4; }
+        
+        @media (max-width: 900px) {
+            .content-feed-invest { grid-template-columns: 1fr; }
+        }
+
+        /* F. Tags & G. FAQ 樣式 (與前頁一致) */
+        .tag-cloud {
+            padding: 20px; background: #f0f7ff; border-radius: var(--radius); margin-bottom: 40px; text-align: center; border: 1px solid #dbe9ff;
+        }
+        .tag-cloud h3 { font-size: 18px; color: var(--brand); margin-bottom: 15px; }
+        .tag-list a { display: inline-block; padding: 8px 15px; margin: 5px; background: #fff; color: var(--brand); border: 1px solid var(--brand); border-radius: 20px; font-size: 14px; font-weight: 500; }
+        .tag-list a:hover { background: var(--brand); color: #fff; transform: scale(1.05); }
+
+        .faq-section { margin-top: 40px; }
+        .faq-item { background: #fff; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+        .faq-question { padding: 15px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; background: #fbfdff; }
+        .faq-answer { padding: 15px; color: var(--muted); border-top: 1px solid var(--border-light); font-size: 14px; }
+        
+        /* H. 底部 CTA */
+        .final-cta-invest {
+            background: linear-gradient(135deg, #FFC300, #ffae00);
+            padding: 40px;
+            border-radius: var(--radius);
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .final-cta-invest h3 { color: #333; margin-bottom: 10px; }
+        .final-cta-invest p { opacity: 0.9; margin-bottom: 25px; }
+        .btn-dark { background: var(--brand-dark); color: #fff; }
+        .btn-dark:hover { background: #000; }
+
+    </style>
+</head>
+<body>
+
+<nav class="sticky-nav">
+    <div class="nav-inner">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">2026 投資理財攻略</a>
+                <ul class="dropdown"><li><a href="planning.html">理財規劃</a></li></ul>
+            </li>
+            <li class="nav-item">
+                <a href="compare.html">比較工具</a>
+                <ul class="dropdown"><li><a href="credit-card.html">信用卡比較</a></li></ul>
+            </li>
+            <li class="nav-item">
+                <a href="life.html">理財生活</a>
+                <ul class="dropdown"><li><a href="saving-tips.html">儲蓄攻略</a></li></ul>
+            </li>
+            <li class="nav-item">
+                <a href="invest.html">投資增值</a>
+                <ul class="dropdown">
+                    <li><a href="stocks.html">股票證券</a></li>
+                    <li><a href="crypto.html">加密貨幣</a></li>
+                    <li><a href="forex-trading.html">外匯交易</a></li>
+                    <li><a href="etf.html">ETF / 基金投資</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="property.html">置業安居</a>
+                <ul class="dropdown"><li><a href="buying-home.html">買樓攻略</a></li></ul>
+            </li>
+            <li class="nav-item">
+                <a href="insurance.html">保險規劃</a>
+                <ul class="dropdown"><li><a href="medical.html">醫療保險</a></li></ul>
+            </li>
+            <li class="nav-item">
+                <a href="career.html">事業發展</a>
+                <ul class="dropdown"><li><a href="retirement.html">退休規劃</a></li></ul>
+            </li>
+            <li class="nav-item">
+                <a href="trends.html">趨勢 & 生活</a>
+                <ul class="dropdown"><li><a href="tech.html">科技新品</a></li></ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    
+    <header class="hero-invest">
+        <h1>投資增值全攻略：股票、加密貨幣、外匯、ETF 策略與平台比較</h1>
+        <p>無論您是價值投資新手，還是尋求高槓桿機會的資深交易員，MoneyDaily 為您提供最全面的資產分析、交易策略和安全平台評測。</p>
+        <a href="#pillars" class="btn btn-primary">探索四大投資增長引擎 &darr;</a>
+    </header>
+
+    <section class="market-snap">
+        <div class="market-item">
+            <div class="market-label">S&P 500</div>
+            <div class="market-value">5,102.34</div>
+            <div class="market-change change-up">+0.85%</div>
+        </div>
+        <div class="market-item">
+            <div class="market-label">比特幣 (BTC)</div>
+            <div class="market-value">$71,500.20</div>
+            <div class="market-change change-up">+2.12%</div>
+        </div>
+        <div class="market-item">
+            <div class="market-label">美元/歐元 (EURUSD)</div>
+            <div class="market-value">1.0850</div>
+            <div class="market-change change-down">-0.15%</div>
+        </div>
+        <div class="market-item">
+            <div class="market-label">黃金 (XAUUSD)</div>
+            <div class="market-value">$2,320.10</div>
+            <div class="market-change change-down">-0.55%</div>
+        </div>
+    </section>
+
+    <section id="pillars" class="pillars-grid">
+        
+        <a href="stocks.html" class="pillar-card">
+            <div class="pillar-icon">📈</div>
+            <h3>股票證券</h3>
+            <p>美股、港股、台股新手入門。學習選股策略、財報分析、技術指標與最佳券商開戶比較。</p>
+            <span class="pillar-link">開始您的第一筆交易 &rarr;</span>
+        </a>
+
+        <a href="crypto.html" class="pillar-card">
+            <div class="pillar-icon">₿</div>
+            <h3>加密貨幣</h3>
+            <p>掌握比特幣、以太坊行情，區塊鏈基礎知識。安全交易所選擇與長期 DCA 投資策略。</p>
+            <span class="pillar-link">探索區塊鏈世界 &rarr;</span>
+        </a>
+
+        <a href="forex-trading.html" class="pillar-card">
+            <div class="pillar-icon">🌐</div>
+            <h3>外匯交易</h3>
+            <p>從基礎知識到專業交易技巧，貨幣對分析、槓桿與風險管理，以及安全的外匯平台推薦。</p>
+            <span class="pillar-link">學習交易技巧 &rarr;</span>
+        </a>
+        
+        <a href="etf.html" class="pillar-card">
+            <div class="pillar-icon">📊</div>
+            <h3>ETF / 基金投資</h3>
+            <p>解讀各類基金（股票型、債券型、房地產型）。學會定投策略，為長期財務目標打基礎。</p>
+            <span class="pillar-link">規劃長期增長 &rarr;</span>
+        </a>
+
+    </section>
+    
+    <section class="comparison-cta-strip">
+        <div>
+            <h3>💰 尋找您的專屬投資平台</h3>
+            <p>我們已為您比較了市場上所有主流證券戶口、加密貨幣交易所和外匯平台。</p>
+        </div>
+        <a href="compare.html" class="btn btn-accent btn-lg">
+            查看所有平台評測 &rarr;
+        </a>
+    </section>
+
+    <section class="content-feed-invest">
+        <div class="main-articles">
+            <h2>💎 投資策略深度分析</h2>
+            
+            <a href="article-value-vs-growth.html" class="article-card">
+                <h4>價值投資 vs 增長投資：哪種策略適合當前市場？</h4>
+                <p style="font-size:14px; color:#555; margin: 0 0 5px;">詳細分析兩大流派的優勢與風險，並提供 2026 年值得關注的標的清單。</p>
+                <div class="article-meta">
+                    <span class="article-tag">股票證券</span>
+                    <span>發布於 2026-12-10</span>
+                </div>
+            </a>
+
+            <a href="article-altcoin-analysis.html" class="article-card">
+                <h4>除了比特幣，還有哪些潛力山寨幣值得關注？</h4>
+                <p style="font-size:14px; color:#555; margin: 0 0 5px;">從應用場景、技術創新角度，為您篩選出 3 個最具爆發力的 Altcoin。</p>
+                <div class="article-meta">
+                    <span class="article-tag" style="background: #fff0f5; color: #ff5757;">加密貨幣</span>
+                    <span>發布於 2026-12-08</span>
+                </div>
+            </a>
+            
+            <a href="article-forex-risk-management.html" class="article-card">
+                <h4>專業交易員的外匯風險管理：如何設定止損止盈？</h4>
+                <p style="font-size:14px; color:#555; margin: 0 0 5px;">實用指南：介紹波幅、固定百分比、ATR等多種進階止損設定方法。</p>
+                <div class="article-meta">
+                    <span class="article-tag" style="background: #e6f7ff; color: #008cff;">外匯交易</span>
+                    <span>發布於 2026-12-05</span>
+                </div>
+            </a>
+            
+            <a href="invest-all-articles.html" class="btn btn-sm btn-outline" style="margin-top:15px;">查看更多策略文章 &rarr;</a>
+
+        </div>
+        
+        <div class="side-popular">
+            <h3>📈 熱門投資工具與文章</h3>
+            <ul class="side-list">
+                <li><a href="tool-dca-calculator.html">DCA 定投效益計算器 (工具)</a></li>
+                <li><a href="guide-crypto-wallets.html">加密貨幣錢包：熱錢包 vs 冷錢包安全指南</a></li>
+                <li><a href="article-top-5-etfs-2026.html">2026 年最受歡迎的 5 支全球 ETF 推薦</a></li>
+                <li><a href="review-us-stock-broker.html">美股券商：交易費用與出入金速度比較 (評測)</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tag-cloud">
+        <h3>🔍 快速尋找您感興趣的長尾策略</h3>
+        <div class="tag-list">
+            <a href="tag-us-stock-beginner.html">#美股新手入門</a>
+            <a href="tag-eth-staking.html">#以太坊質押收益</a>
+            <a href="tag-technical-analysis.html">#技術分析K線</a>
+            <a href="tag-swing-trading.html">#股票波段交易</a>
+            <a href="tag-bond-etf.html">#債券型ETF</a>
+            <a href="tag-copy-trading.html">#外匯跟單平台</a>
+            <a href="tag-tax-on-crypto.html">#加密貨幣稅務</a>
+            <a href="tag-dividend-strategy.html">#高股息策略</a>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2 class="featured-title">❓ 投資增值常見問題 (FAQ)</h2>
+        <div class="faq-item">
+            <div class="faq-question">如何選擇適合自己的股票投資策略？ <span>+</span></div>
+            <div class="faq-answer">
+                新手建議從「價值投資」或「ETF 定投」開始，重點在於選取穩健、具備長期成長潛力的標的。專業投資者則可嘗試技術分析或波段交易，但風險較高。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">外匯交易有哪些主要風險？ <span>+</span></div>
+            <div class="faq-answer">
+                外匯交易主要風險包括：**槓桿風險**（倉位過大可能導致快速虧損）、**市場風險**（突發經濟事件導致價格劇烈波動）和**隔夜利息**（若持倉過夜可能產生費用）。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">基金定投与一次性投資的差別？ <span>+</span></div>
+            <div class="faq-answer">
+                定投（DCA）是定期投入固定金額，能有效攤平高點買入的風險。一次性投資則可能因入場時機不佳而面臨較大回撤，但若抓準時機，潛在報酬率更高。
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta-invest">
+        <h3>立即獲取 2026 投資人必備策略指南</h3>
+        <p>這份 PDF 包含了最新市場分析、各資產配置建議及風險管理清單，助您在變動的市場中穩步前進。</p>
+        <a href="download-invest-guide.html" class="btn btn-dark btn-lg">
+            📥 點擊下載指南 (免費) &rarr;
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2026 MoneyDaily. 投資有風險，入市需謹慎。本頁面內容不構成投資建議。</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
