@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投資增值 Investment - 股票、加密貨幣與資產配置指南 | InvestBrother</title>
+    <meta name="description" content="全方位的投資理財指南。涵蓋股票證券、加密貨幣、外匯交易、基金債券及退休規劃。提供2025資產配置策略、新手入門教學與即時市場分析。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==================================== */
+        /* 1. 基礎排版與顏色變數 (Base & Colors) */
+        /* ==================================== */
+        :root {
+            --investbrother-blue: #062750; /* 核心品牌色 */
+            --primary-color: var(--investbrother-blue);
+            --accent-color: #f7931a;      /* 強調色 (金色/橘色) */
+            --secondary-color: #6c757d;   /* 次要文字灰 */
+            --background-color: #f8f9fa;  /* 全局背景 */
+            --card-background: #ffffff;   /* 卡片背景 */
+            --text-color: #343a40;        /* 主要文字 */
+            --border-color: #e9ecef;      /* 邊框色 */
+            --max-width: 1200px;
+            --header-height: 60px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, 'Microsoft JhengHei', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            padding-top: var(--header-height); 
+        }
+
+        ul { list-style: none; margin: 0; padding: 0; }
+        a { text-decoration: none; transition: all 0.3s; color: var(--primary-color); }
+        a:hover { color: #0056b3; }
+        h1, h2, h3, h4 { margin-top: 0.5em; margin-bottom: 0.5em; line-height: 1.3; color: #212529; }
+
+        /* ==================================== */
+        /* 2. 導航欄樣式 (Sticky Header) */
+        /* ==================================== */
+        .sticky-header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            background-color: var(--card-background);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            height: var(--header-height);
+            display: flex; justify-content: center;
+        }
+        nav.main-nav { max-width: var(--max-width); width: 100%; height: 100%; }
+        .main-menu { display: flex; justify-content: space-around; height: 100%; align-items: center; }
+        .menu-item { position: relative; height: 100%; display: flex; align-items: center; }
+        .menu-item > a {
+            color: var(--text-color); font-weight: bold; padding: 0 15px;
+            height: 100%; display: flex; align-items: center;
+        }
+        .menu-item:hover > a { color: var(--primary-color); background-color: #f8f9fa; }
+        
+        /* 下拉菜單 */
+        .submenu {
+            display: none; position: absolute; top: 100%; left: 0;
+            min-width: 200px; background-color: var(--card-background);
+            border-top: 3px solid var(--primary-color);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 10px 0; border-radius: 0 0 5px 5px;
+        }
+        .menu-item:hover .submenu { display: block; }
+        .submenu li a { padding: 10px 20px; color: var(--text-color); display: block; font-size: 14px; }
+        .submenu li a:hover { background-color: var(--background-color); color: var(--primary-color); padding-left: 25px; }
+
+        /* ==================================== */
+        /* 3. 特殊功能區塊 (Ticker & Hero) */
+        /* ==================================== */
+        
+        /* 即時行情跑馬燈 */
+        .market-ticker {
+            background-color: #0d1b2a; color: #fff;
+            padding: 8px 0; overflow: hidden; white-space: nowrap;
+            font-size: 13px; border-bottom: 1px solid #1b3a57;
+        }
+        .ticker-content { display: inline-block; animation: ticker 40s linear infinite; }
+        .ticker-item { display: inline-block; margin-right: 40px; }
+        .ticker-item span.up { color: #4cd137; }
+        .ticker-item span.down { color: #ff4757; }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Hero 區塊 */
+        .invest-hero {
+            background: linear-gradient(135deg, var(--investbrother-blue) 0%, #0a3d7a 100%);
+            color: #fff; padding: 60px 20px; text-align: center;
+            margin-bottom: 40px;
+            position: relative; overflow: hidden;
+        }
+        .invest-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png'); opacity: 0.1;
+        }
+        .invest-hero h1 { color: #fff; font-size: 2.5rem; margin-bottom: 15px; position: relative; }
+        .invest-hero .lead { color: #e0e0e0; max-width: 700px; margin: 0 auto 30px auto; font-size: 1.1rem; position: relative; }
+        
+        /* Hero 按鈕 */
+        .hero-actions { display: flex; justify-content: center; gap: 15px; position: relative; }
+        .btn {
+            display: inline-block; padding: 10px 24px; border-radius: 50px;
+            font-weight: 600; text-align: center; border: 2px solid transparent; cursor: pointer;
+            text-decoration: none !important; /* 覆蓋 a:hover 樣式 */
+        }
+        .btn-primary-inv { background-color: var(--accent-color); color: #fff !important; }
+        .btn-primary-inv:hover { background-color: #e0820b; color: #fff !important; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(247, 147, 26, 0.4); }
+        .btn-outline-inv { border-color: #fff; color: #fff !important; background: transparent; }
+        .btn-outline-inv:hover { background-color: #fff; color: var(--investbrother-blue) !important; }
+
+        /* ==================================== */
+        /* 4. 內容佈局 (Grid & Cards) */
+        /* ==================================== */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        
+        /* 子欄目導航卡片 */
+        .category-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px; margin-bottom: 50px; margin-top: -30px; position: relative; z-index: 10;
+        }
+        .cat-card {
+            background: #fff; padding: 25px 15px; border-radius: 12px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s; border: 1px solid transparent;
+            display: flex; flex-direction: column; align-items: center; height: 100%; box-sizing: border-box;
+        }
+        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(6, 39, 80, 0.15); border-color: var(--primary-color); }
+        .cat-icon { font-size: 2.2rem; margin-bottom: 15px; color: var(--primary-color); }
+        .cat-title { font-weight: bold; color: var(--text-color); margin-bottom: 5px; font-size: 1.1rem; }
+        .cat-desc { font-size: 0.85rem; color: var(--secondary-color); }
+
+        /* 主佈局 (左內容 + 右側欄) */
+        .layout { display: flex; gap: 40px; margin-bottom: 60px; }
+        main { flex: 1; min-width: 0; }
+        .sidebar { flex: 0 0 320px; }
+
+        /* 通用卡片樣式 */
+        .card {
+            background: var(--card-background); padding: 20px; border-radius: 12px;
+            border: 1px solid var(--border-color); margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* 章節標題 */
+        .section-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 25px; border-left: 5px solid var(--primary-color); padding-left: 15px;
+        }
+        .section-header h2 { margin: 0; font-size: 1.5rem; }
+        .view-more { font-size: 14px; font-weight: bold; color: var(--primary-color); }
+
+        /* 文章列表樣式 */
+        .article-list .article { display: flex; gap: 20px; align-items: flex-start; padding: 20px; transition: background 0.2s; }
+        .article-list .article:hover { background-color: #f8f9fa; }
+        .article-list img { width: 160px; height: 100px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+        .article-meta { font-size: 12px; color: var(--secondary-color); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .article h3 { margin: 5px 0 10px 0; font-size: 1.1rem; }
+        .article p { margin: 0; font-size: 0.95rem; color: #555; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* 特色專題 Grid */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .feature-card { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; transition: box-shadow 0.3s; }
+        .feature-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .feature-content { padding: 15px; }
+        .feature-tag { background: #e9ecef; color: var(--secondary-color); padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+
+        /* ==================================== */
+        /* 5. 側欄工具與 FAQ */
+        /* ==================================== */
+        
+        /* 工具 Widget */
+        .tool-widget { background: #f1f8ff; padding: 25px; border-radius: 12px; border: 1px solid #d0e7ff; }
+        .tool-input { width: 100%; padding: 10px; margin: 8px 0 15px 0; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; }
+        .tool-label { font-size: 13px; font-weight: bold; color: var(--investbrother-blue); }
+        
+        /* 標籤雲 */
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { padding: 5px 12px; background-color: #fff; border: 1px solid var(--border-color); color: var(--secondary-color); border-radius: 20px; font-size: 13px; }
+        .tag:hover { background-color: var(--primary-color); color: #ffffff; border-color: var(--primary-color); }
+
+        /* FAQ 手風琴 */
+        .faq-item { background: #fff; border: 1px solid var(--border-color); margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
+        .faq-question { padding: 15px; cursor: pointer; font-weight: bold; background: #fff; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question:hover { background-color: #f8f9fa; }
+        .faq-answer { padding: 0 15px 15px 15px; color: #555; font-size: 14px; display: none; line-height: 1.6; border-top: 1px solid #f1f1f1; margin-top: -1px;}
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { color: var(--primary-color); }
+        .faq-item .fas { transition: transform 0.3s; }
+        .faq-item.active .fas { transform: rotate(180deg); }
+
+        /* Footer */
+        footer { background: var(--investbrother-blue); color: #fff; padding: 40px 0 20px 0; text-align: center; margin-top: auto; }
+        footer a { color: #ccc; }
+        footer a:hover { color: #fff; }
+        
+        /* ==================================== */
+        /* 6. 排行榜與 Tab 切換優化樣式 */
+        /* ==================================== */
+
+        /* 排行榜容器 */
+        .ranking-section {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 排行榜 Tab 按鈕 */
+        .rank-tabs {
+            display: flex;
+            border-bottom: 2px solid #f1f1f1;
+            margin-bottom: 15px;
+            overflow-x: auto; 
+        }
+        .rank-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--secondary-color);
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: color 0.3s;
+        }
+        .rank-tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* 排行榜表格 */
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .rank-table th {
+            text-align: left;
+            color: var(--secondary-color);
+            padding: 8px 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+        .rank-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #f8f9fa;
+            color: var(--text-color);
+        }
+        .rank-table tr:last-child td { border-bottom: none; }
+        .rank-change { font-weight: bold; }
+        .rank-change.up { color: #28a745; }
+        .rank-change.down { color: #dc3545; }
+
+        /* 新聞區 Tab 切換 */
+        .news-filter {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+        
+        /* 內容顯示控制類 */
+        .rank-content { display: none; } /* 預設隱藏所有排行榜內容 */
+        .rank-content.active { 
+            display: block; 
+            animation: fadeIn 0.5s; 
+        }
+
+        /* 新聞列表隱藏/顯示控制 */
+        .news-item { display: none; }
+        .news-item.active { 
+            display: flex; /* 在這裡使用 flex 佈局 */
+            animation: fadeIn 0.5s; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================================== */
+        /* 7. RWD 響應式設計 */
+        /* ==================================== */
+        @media (max-width: 992px) {
+            .layout { flex-direction: column; gap: 30px; }
+            .sidebar { flex: auto; width: 100%; }
+            .main-menu { display: none; } /* 實際部署時應替換為漢堡菜單 */
+            .main-nav { overflow-x: auto; white-space: nowrap; }
+            .main-menu { display: flex; justify-content: flex-start; padding: 0 10px; }
+            .menu-item { padding: 0 5px; }
+            
+            /* 文章列表在手機端垂直堆疊 */
+            .article-list .article { flex-direction: column; }
+            .article-list img { width: 100%; height: 180px; max-width: 300px; margin: 0 auto 10px auto; }
+            
+            .invest-hero h1 { font-size: 1.8rem; }
+            .hero-actions { flex-direction: column; }
+            .btn { width: 100%; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="sticky-header">
+    <nav class="main-nav">
+        <ul class="main-menu">
+            <li class="menu-item"><a href="/ibindex.html">商業新聞</a></li>
+            <li class="menu-item" style="border-bottom: 3px solid var(--accent-color);">
+                <a href="/investment.html" style="color: var(--primary-color);">投資世界</a>
+                <ul class="submenu">
+                    <li><a href="/investment/stocks">股票證券</a></li>
+                    <li><a href="/investment/crypto">加密貨幣</a></li>
+                    <li><a href="/investment/forex">外匯交易</a></li>
+                    <li><a href="/investment/funds">基金債券</a></li>
+                    <li><a href="/investment/retirement">退休理財 / 保險</a></li>
+                    <li><a href="/investment/markets">即時行情</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="/personal-finance">個人金融</a></li>
+            <li class="menu-item"><a href="/real-estate">地產市場</a></li>
+            <li class="menu-item"><a href="/topics-lifestyle">專題 & 生活</a></li>
+            <li class="menu-item"><a href="/comparison-tools">比較工具</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="market-ticker">
+    <div class="ticker-content">
+        <div class="ticker-item">S&P 500 <span class="up"><i class="fas fa-caret-up"></i> 0.45%</span></div>
+        <div class="ticker-item">NASDAQ <span class="up"><i class="fas fa-caret-up"></i> 0.80%</span></div>
+        <div class="ticker-item">BTC/USD <span class="down"><i class="fas fa-caret-down"></i> 1.2%</span></div>
+        <div class="ticker-item">EUR/USD <span class="up"><i class="fas fa-caret-up"></i> 0.12%</span></div>
+        <div class="ticker-item">Gold <span class="up"><i class="fas fa-caret-up"></i> 0.3%</span></div>
+        <div class="ticker-item">US 10Y Yield <span class="down"><i class="fas fa-caret-down"></i> 0.05%</span></div>
+        <div class="ticker-item">S&P 500 <span class="up"><i class="fas fa-caret-up"></i> 0.45%</span></div>
+        <div class="ticker-item">NASDAQ <span class="up"><i class="fas fa-caret-up"></i> 0.80%</span></div>
+    </div>
+</div>
+
+<section class="invest-hero">
+    <div class="container">
+        <h1>投資增值，由此啟航</h1>
+        <p class="lead">股票、基金、外匯、加密貨幣全覆蓋。為新手與進階投資者提供最完整的 2025 資產配置指南。</p>
+        <div class="hero-actions">
+            <a href="#guide" class="btn btn-primary-inv"><i class="fas fa-book-open"></i> 查看投資入門指南</a>
+            <a href="#tools" class="btn btn-outline-inv"><i class="fas fa-calculator"></i> 模擬資產配置</a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    
+    <div class="category-grid">
+        <a href="/investment/stocks" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="cat-title">股票證券</div>
+            <div class="cat-desc">美股、港股與 ETF 分析</div>
+        </a>
+        <a href="/investment/crypto" class="cat-card">
+            <div class="cat-icon"><i class="fab fa-bitcoin"></i></div>
+            <div class="cat-title">加密貨幣</div>
+            <div class="cat-desc">Web3、DeFi 與幣圈動態</div>
+        </a>
+        <a href="/investment/forex" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-exchange-alt"></i></div>
+            <div class="cat-title">外匯交易</div>
+            <div class="cat-desc">匯率策略與央行決策</div>
+        </a>
+        <a href="/investment/funds" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-piggy-bank"></i></div>
+            <div class="cat-title">基金債券</div>
+            <div class="cat-desc">穩健收益與固定收益</div>
+        </a>
+        <a href="/investment/retirement" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-umbrella-beach"></i></div>
+            <div class="cat-title">退休理財</div>
+            <div class="cat-desc">保險規劃與退休金</div>
+        </a>
+    </div>
+
+    <div class="layout">
+        
+        <main>
+            
+            <section class="ranking-section">
+                <div class="section-header" style="border-left: none; padding-left: 0; margin-bottom: 10px;">
+                    <h2 style="font-size: 1.3rem;">🏆 市場熱度排行榜</h2>
+                </div>
+                
+                <div class="rank-tabs" id="rank-tabs-control">
+                    <div class="rank-tab active" data-rank="rank-stocks">股票熱門</div>
+                    <div class="rank-tab" data-rank="rank-crypto">加密貨幣</div>
+                    <div class="rank-tab" data-rank="rank-forex">外匯/券商</div>
+                </div>
+
+                <div id="rank-stocks" class="rank-content active">
+                    <table class="rank-table">
+                        <thead><tr><th>資產名稱</th><th>現價</th><th>24h 漲跌</th></tr></thead>
+                        <tbody>
+                            <tr><td>🚀 NVDA (Nvidia)</td><td>$920.50</td><td class="rank-change up">+3.5%</td></tr>
+                            <tr><td>🍎 AAPL (Apple)</td><td>$175.30</td><td class="rank-change down">-0.8%</td></tr>
+                            <tr><td>🚗 TSLA (Tesla)</td><td>$180.20</td><td class="rank-change up">+1.2%</td></tr>
+                            <tr><td>☁️ MSFT (Microsoft)</td><td>$410.10</td><td class="rank-change up">+0.5%</td></tr>
+                            <tr><td>🏦 JPM (JP Morgan)</td><td>$195.00</td><td class="rank-change up">+1.1%</td></tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: right; margin-top: 10px;">
+                        <a href="/investment/markets" style="font-size: 12px;">查看完整美股報價 &rarr;</a>
+                    </div>
+                </div>
+
+                <div id="rank-crypto" class="rank-content">
+                    <table class="rank-table">
+                        <thead><tr><th>代幣</th><th>價格 (USD)</th><th>趨勢</th></tr></thead>
+                        <tbody>
+                            <tr><td>🟡 Bitcoin (BTC)</td><td>$68,500</td><td class="rank-change up">+2.1%</td></tr>
+                            <tr><td>🔵 Ethereum (ETH)</td><td>$3,500</td><td class="rank-change up">+1.8%</td></tr>
+                            <tr><td>🐶 Dogecoin</td><td>$0.15</td><td class="rank-change up">+5.0%</td></tr>
+                            <tr><td>☀️ Solana (SOL)</td><td>$145.20</td><td class="rank-change down">-1.2%</td></tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: right; margin-top: 10px;">
+                        <a href="/investment/crypto" style="font-size: 12px;">查看幣圈實時榜單 &rarr;</a>
+                    </div>
+                </div>
+                
+                <div id="rank-forex" class="rank-content">
+                    <table class="rank-table">
+                        <thead><tr><th>券商評級</th><th>特點</th><th>評分</th></tr></thead>
+                        <tbody>
+                            <tr><td>🥇 券商 A (Exness)</td><td>點差極低 / 秒提款</td><td class="rank-change up">9.8</td></tr>
+                            <tr><td>🥈 券商 B (XM)</td><td>開戶送 $30 / 贈金</td><td class="rank-change up">9.5</td></tr>
+                            <tr><td>🥉 券商 C (Interactive)</td><td>上市監管 / 安全</td><td class="rank-change up">9.3</td></tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: right; margin-top: 10px;">
+                        <a href="/comparison-tools" style="font-size: 12px;">比較所有外匯交易平台 &rarr;</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="strategy" style="margin-bottom: 50px;">
+                <div class="section-header">
+                    <h2><i class="fas fa-bullseye" style="color: var(--accent-color);"></i> 2025 投資組合策略</h2>
+                    <a href="#" class="view-more">查看專題 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div style="height: 150px; background: #ddd; display: flex; align-items: center; justify-content: center; color: #888;">
+                            <i class="fas fa-image fa-2x"></i>
+                        </div>
+                        <div class="feature-content">
+                            <span class="feature-tag">資產配置</span>
+                            <h3><a href="#">長期投資 vs 短期交易：你適合哪種？</a></h3>
+                            <p style="font-size: 13px; color: #666;">解析不同投資風格的風險回報比，找到適合你的交易節奏。</p>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div style="height: 150px; background: #ddd; display: flex; align-items: center; justify-content: center; color: #888;">
+                            <i class="fas fa-image fa-2x"></i>
+                        </div>
+                        <div class="feature-content">
+                            <span class="feature-tag">風險管理</span>
+                            <h3><a href="#">通膨時代的防禦性資產清單</a></h3>
+                            <p style="font-size: 13px; color: #666;">黃金、抗通膨債券 (TIPS) 與房地產信託的配置比例建議。</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section style="margin-bottom: 50px;">
+                <div class="section-header">
+                    <h2><i class="far fa-newspaper"></i> 最新投資洞察</h2>
+                </div>
+
+                <div class="news-filter" id="news-filter-control">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="stocks">股票證券</button>
+                    <button class="filter-btn" data-filter="crypto">加密貨幣</button>
+                    <button class="filter-btn" data-filter="forex">外匯交易</button>
+                    <button class="filter-btn" data-filter="funds">基金債券</button>
+                </div>
+
+                <div class="card article-list" style="border: none; box-shadow: none; padding: 0; background: transparent;">
+                    
+                    <div class="card article news-item category-stocks active">
+                        <img src="https://via.placeholder.com/160x100?text=Stock" alt="美股分析">
+                        <div>
+                            <div class="article-meta"><span style="color: var(--accent-color);">股票證券</span> • 2 小時前</div>
+                            <h3><a href="#">美股財報季前瞻：AI 概念股還能追嗎？</a></h3>
+                            <p>分析 Nvidia、Microsoft 與 Google 的最新財報預期與市場情緒，技術面是否出現過熱信號？</p>
+                        </div>
+                    </div>
+
+                    <div class="card article news-item category-crypto active">
+                        <img src="https://via.placeholder.com/160x100?text=Crypto" alt="加密貨幣">
+                        <div>
+                            <div class="article-meta"><span style="color: var(--accent-color);">加密貨幣</span> • 5 小時前</div>
+                            <h3><a href="#">以太坊 ETF 通過後的市場機遇</a></h3>
+                            <p>機構資金入場將如何改變 DeFi 生態格局？深度解析。</p>
+                        </div>
+                    </div>
+
+                    <div class="card article news-item category-forex active">
+                        <img src="https://via.placeholder.com/160x100?text=Forex" alt="外匯">
+                        <div>
+                            <div class="article-meta"><span style="color: var(--accent-color);">外匯交易</span> • 1 天前</div>
+                            <h3><a href="#">日圓貶值何時休？日本央行政策解讀</a></h3>
+                            <p>USD/JPY 是否會突破 160？交易員必看的宏觀分析。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card article news-item category-funds active">
+                        <img src="https://via.placeholder.com/160x100?text=Funds" alt="基金">
+                        <div>
+                            <div class="article-meta"><span style="color: var(--accent-color);">基金債券</span> • 2 天前</div>
+                            <h3><a href="#">高股息 ETF 真的抗跌嗎？數據回測</a></h3>
+                            <p>在熊市中表現如何？比較 SCHD 與 VYM 的長期回報。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card article news-item category-stocks active">
+                        <img src="https://via.placeholder.com/160x100?text=Stock" alt="股票">
+                        <div>
+                            <div class="article-meta"><span style="color: var(--accent-color);">股票證券</span> • 3 天前</div>
+                            <h3><a href="#">財富自由的關鍵：複利的力量與計算</a></h3>
+                            <p>教你如何計算複利，以及早期投資帶來的巨大效益。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="faq">
+                <div class="section-header">
+                    <h2><i class="far fa-question-circle"></i> 常見投資問題 (FAQ)</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">投資理財需要多少啟動資金？ <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">
+                            <p>其實門檻很低。現在許多券商提供「零股交易」或「定期定額」，每個月只需 100 美元或 1000 台幣即可開始投資 ETF 或零股。關鍵在於儘早開始，利用複利效應。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">股票、基金、加密貨幣哪個風險最低？ <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">
+                            <p>一般而言，風險排序為：<strong>加密貨幣 > 個股 > 股票型基金 > 債券基金 > 儲蓄/定存</strong>。建議新手從指數型基金 (ETF) 開始，因為它們分散了單一公司的風險。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">ETF 適合長期投資嗎？ <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">
+                            <p>非常適合。大盤指數型 ETF（如追蹤 S&P 500）具有自動汰弱留強的機制，長期來看隨經濟成長向上。是被動投資者的首選工具。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <aside class="sidebar">
+            
+            <div class="card" style="background: linear-gradient(180deg, #ffffff 0%, #e3f2fd 100%); border-color: #90caf9; text-align: center;">
+                <i class="fas fa-rocket fa-3x" style="color: var(--investbrother-blue); margin-bottom: 15px;"></i>
+                <h3 style="color: var(--investbrother-blue); margin-top: 0;">準備好開始了嗎？</h3>
+                <p style="font-size: 14px;">比較全網最佳交易平台，領取限時開戶優惠。</p>
+                <a href="/comparison-tools" class="btn btn-primary-inv" style="width: 100%; box-sizing: border-box; display: block;">比較最佳券商 <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="tool-widget" id="tools">
+                <h3 style="margin-top: 0; color: var(--investbrother-blue);"><i class="fas fa-calculator"></i> 複利效應計算</h3>
+                
+                <label class="tool-label">初始本金 ($)</label>
+                <input type="number" class="tool-input" placeholder="10000" value="10000">
+                
+                <label class="tool-label">年回報率 (%)</label>
+                <input type="number" class="tool-input" placeholder="8" value="8">
+                
+                <label class="tool-label">投資年限 (年)</label>
+                <input type="number" class="tool-input" placeholder="10" value="10">
+                
+                <button class="btn btn-primary-inv" style="width: 100%; font-size: 14px;">計算未來價值</button>
+                
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #ccc; text-align: center;">
+                    <span style="font-size: 12px; color: #666;">預估總資產</span>
+                    <div style="font-size: 24px; font-weight: bold; color: var(--investbrother-blue);">$21,589</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="font-size: 1.2rem;">🔥 熱門話題</h3>
+                <div class="tags">
+                    <a href="#" class="tag">#美股</a>
+                    <a href="#" class="tag">#AI概念股</a>
+                    <a href="#" class="tag">#比特幣</a>
+                    <a href="#" class="tag">#降息預期</a>
+                    <a href="#" class="tag">#高股息ETF</a>
+                    <a href="#" class="tag">#FIRE運動</a>
+                    <a href="#" class="tag">#Nvidia</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="font-size: 1.2rem;">本週熱讀</h3>
+                <ul style="padding: 0; font-size: 14px; list-style: none;">
+                    <li style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #f1f1f1;">
+                        <a href="#" style="color: var(--text-color); display: flex; gap: 10px;">
+                            <span style="color: #ccc; font-weight: bold;">1</span>
+                            <span>比特幣減半後的價格走勢預測</span>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #f1f1f1;">
+                        <a href="#" style="color: var(--text-color); display: flex; gap: 10px;">
+                            <span style="color: #ccc; font-weight: bold;">2</span>
+                            <span>什麼是國債殖利率倒掛？</span>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0;">
+                        <a href="#" style="color: var(--text-color); display: flex; gap: 10px;">
+                            <span style="color: #ccc; font-weight: bold;">3</span>
+                            <span>退休金 4% 法則還適用嗎？</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 InvestBrother. All Rights Reserved.</p>
+        <p style="font-size: 12px; opacity: 0.7;">免責聲明：本網站內容僅供參考，不構成投資建議。投資有風險，入市須謹慎。</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- 1. FAQ 手風琴功能 ---
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentNode;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // --- 2. 排行榜切換功能 ---
+        const rankTabs = document.querySelectorAll('#rank-tabs-control .rank-tab');
+        rankTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const rankName = this.getAttribute('data-rank');
+
+                // 移除所有 Tab 的 active 狀態
+                rankTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // 隱藏所有內容
+                document.querySelectorAll('.rank-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // 顯示選定的內容
+                document.getElementById(rankName).classList.add('active');
+            });
+        });
+        
+        // --- 3. 新聞列表 Tag 過濾功能 ---
+        const filterButtons = document.querySelectorAll('.news-filter .filter-btn');
+        const newsItems = document.querySelectorAll('.news-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-filter');
+
+                // 更新按鈕樣式
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // 過濾文章
+                newsItems.forEach(item => {
+                    item.classList.remove('active'); // 先移除 active 狀態
+                    
+                    if (category === 'all' || item.classList.contains('category-' + category)) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // 頁面加載時，初始化顯示所有新聞
+        document.querySelector('.news-filter .filter-btn[data-filter="all"]').click();
+    });
+</script>
+
+</body>
+</html>
