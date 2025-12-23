@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保險規劃全攻略2026：醫療、危疾、人壽及儲蓄保險一站式了解 | 投資理財攻略</title>
+    <meta name="description" content="全方位保險規劃指南，涵蓋醫療保險理賠流程、危疾保險保障額度、人壽保險類型比較及儲蓄保險回報分析。助您構建完善的家庭保障網。">
+    <meta name="keywords" content="保險規劃, 醫療保險, 危疾保險, 人壽保險, 儲蓄保險, 保險比較, 香港保險, 台灣保險">
+    <link rel="canonical" href="https://www.yourdomain.com/insurance-planning/" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* ==================================== */
+        /* 0. 全局變量與基礎設置 (補充部分) */
+        /* ==================================== */
+        :root {
+            --brand: #0264C1;
+            --brand-dark: #014b90;
+            --accent: #FFC107;
+            --text-main: #333;
+            --text-light: #666;
+            --gray-bg: #f9fbfd;
+            --maxw: 1200px;
+            --nav-height: 70px;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft JhengHei', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--nav-height); /* 防止內容被固定導航遮擋 */
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================================== */
+        /* 1. 用戶提供的導航欄代碼 */
+        /* ==================================== */
+        .sticky-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+            background: linear-gradient(90deg, #0264C1, #014b90);
+            z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex; justify-content: center;
+        }
+        .nav-inner { width: 100%; max-width: var(--maxw); display: flex; align-items: center; padding: 0 20px; }
+        .nav-menu { display: flex; width: 100%; justify-content: space-between; height: 100%; }
+        .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-item > a { color: #fff; font-size: 15px; font-weight: 500; padding: 0 10px; opacity: 0.9; }
+        .nav-item:hover > a { opacity: 1; background: rgba(255,255,255,0.1); }
+        
+        /* 下拉選單 */
+        .dropdown {
+            display: none; position: absolute; top: 100%; left: 0;
+            background: #fff; min-width: 220px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            border-top: 3px solid var(--accent); padding: 10px 0; border-radius: 0 0 6px 6px;
+        }
+        .nav-item:hover .dropdown { display: block; }
+        .dropdown li a { display: block; padding: 10px 20px; color: #333; font-size: 14px; border-bottom: 1px solid #f5f5f5; }
+        .dropdown li a:hover { background: #f0f7ff; color: var(--brand); padding-left: 25px; }
+
+        @media (max-width: 1100px) {
+            .nav-menu { overflow-x: auto; justify-content: flex-start; padding-right: 20px; }
+            .nav-item { flex-shrink: 0; }
+        }
+
+        /* 子欄目 Grid */
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+        .category-card { background: white; border: 1px solid #eee; border-radius: 12px; padding: 30px; transition: 0.3s; text-decoration: none; color: inherit; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; height: 100%; }
+        .category-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--brand); }
+        .category-card h3 { color: var(--brand); margin-top: 0; font-size: 1.4rem; display: flex; align-items: center; margin-bottom: 15px; }
+        .category-card h3 i { margin-right: 10px; width: 30px; text-align: center; }
+        .category-card p { font-size: 0.95rem; color: #666; margin-bottom: 20px; flex-grow: 1; }
+        .read-more { color: var(--brand); font-weight: 600; font-size: 0.9rem; margin-top: auto; display: inline-flex; align-items: center; }
+        .read-more::after { content: '\f061'; font-family: "Font Awesome 6 Free"; margin-left: 5px; transition: 0.3s; }
+        .category-card:hover .read-more::after { transform: translateX(5px); }
+
+        /* FAQ Module */
+        .faq-container { background: var(--gray-bg); border-radius: 15px; padding: 40px; margin-top: 60px; }
+        .faq-item { background: white; margin-bottom: 15px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        /* 使用 details/summary 實現原生交互，無需 JS */
+        details.faq-details { width: 100%; }
+        summary.faq-question { 
+            font-weight: bold; color: var(--brand-dark); 
+            padding: 20px; cursor: pointer; list-style: none; position: relative; 
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        summary.faq-question::-webkit-details-marker { display: none; }
+        summary.faq-question::after { content: '+'; font-size: 1.5rem; color: var(--brand); font-weight: 300; }
+        details[open] summary.faq-question::after { content: '-'; }
+        .faq-answer { padding: 0 20px 20px 20px; color: #555; line-height: 1.6; border-top: 1px solid #f0f0f0; display: block; }
+
+        /* Tags Area */
+        .tags-cloud { text-align: center; margin-top: 40px; padding: 20px 0; border-top: 1px solid #eee; }
+        .tag { display: inline-block; padding: 8px 18px; background: #e3f2fd; color: var(--brand); border-radius: 20px; margin: 6px; text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
+        .tag:hover { background: var(--brand); color: white; box-shadow: 0 4px 8px rgba(2, 100, 193, 0.3); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .category-grid { grid-template-columns: 1fr; }
+            .faq-container { padding: 20px; }
+        }
+
+        /* ==================================== */
+        /* 2. 支柱頁專屬樣式 (Hero & Sections) */
+        /* ==================================== */
+        .hero {
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .hero h1 { font-size: 2.5rem; color: var(--brand-dark); margin-bottom: 15px; }
+        .hero p.subtitle { font-size: 1.2rem; color: var(--text-light); max-width: 800px; margin: 0 auto 30px; }
+        
+        .breadcrumbs { padding: 15px 0; font-size: 0.9rem; color: #888; background: #fff; }
+        .breadcrumbs a { color: var(--text-light); }
+        .breadcrumbs a:hover { color: var(--brand); }
+
+        .section-title { font-size: 2rem; text-align: center; margin-bottom: 40px; color: var(--text-main); position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--brand); margin: 15px auto 0; }
+
+        /* 最新文章聚合區 */
+        .latest-articles { margin-top: 80px; }
+        .article-list { display: flex; flex-direction: column; gap: 20px; }
+        .article-item { display: flex; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .article-meta { font-size: 0.85rem; color: #999; margin-bottom: 5px; }
+        .article-cat { color: var(--brand); font-weight: bold; margin-right: 10px; }
+        .article-item h4 { margin: 0 0 10px 0; font-size: 1.2rem; }
+        .article-item h4 a:hover { color: var(--brand); text-decoration: underline; }
+        
+        /* 底部 CTA */
+        .bottom-cta {
+            background: linear-gradient(45deg, var(--brand-dark), var(--brand));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 12px;
+        }
+        .bottom-cta h2 { margin-top: 0; }
+        .btn-cta {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-main);
+            padding: 15px 35px;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-cta:hover { transform: scale(1.05); background: #ffd54f; }
+        
+        footer { background: #333; color: #fff; padding: 40px 0; text-align: center; margin-top: 0; }
+		
+		
+		  /* ==================================== */
+        /* 3. 新增樣式：保險基礎知識庫 (Knowledge Hub) */
+        /* ==================================== */
+        .knowledge-section { background: #fff; padding: 40px 0; }
+        .knowledge-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .know-card { display: flex; gap: 20px; align-items: flex-start; padding: 20px; background: #f8fbff; border-radius: 10px; border-left: 4px solid var(--brand); }
+        .know-icon { font-size: 2rem; color: var(--brand); flex-shrink: 0; margin-top: 5px; }
+        .know-content h4 { margin: 0 0 10px 0; font-size: 1.25rem; color: var(--brand-dark); }
+        .know-content p { margin: 0; font-size: 0.95rem; color: #555; }
+        .know-link { display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--brand); font-weight: bold; text-decoration: underline; }
+        
+        @media (max-width: 768px) { .knowledge-grid { grid-template-columns: 1fr; } }
+
+        /* ==================================== */
+        /* 4. 新增樣式：排名 Tab 系統 (Ranking System) */
+        /* ==================================== */
+        .ranking-container { background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eee; }
+        
+        /* Tabs Header */
+        .tabs-header { display: flex; background: #f1f1f1; border-bottom: 1px solid #ddd; overflow-x: auto; }
+        .tab-btn {
+            flex: 1; padding: 15px 20px; border: none; background: transparent; cursor: pointer;
+            font-size: 1.1rem; font-weight: bold; color: #666; transition: 0.3s; white-space: nowrap;
+        }
+        .tab-btn:hover { background: #e9e9e9; color: var(--brand); }
+        .tab-btn.active { background: #fff; color: var(--brand); border-top: 3px solid var(--brand); }
+
+        /* Tabs Content */
+        .tab-content { display: none; padding: 30px; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+        
+        /* Ranking List Style */
+        .rank-list { counter-reset: rank; }
+        .rank-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .rank-item:last-child { border-bottom: none; }
+        .rank-num { 
+            width: 40px; height: 40px; background: #eee; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            font-weight: bold; color: #555; margin-right: 20px; flex-shrink: 0;
+        }
+        .rank-item:nth-child(1) .rank-num { background: #FFD700; color: #fff; } /* Gold */
+        .rank-item:nth-child(2) .rank-num { background: #C0C0C0; color: #fff; } /* Silver */
+        .rank-item:nth-child(3) .rank-num { background: #CD7F32; color: #fff; } /* Bronze */
+        
+        .rank-info { flex-grow: 1; }
+        .rank-name { font-weight: bold; font-size: 1.1rem; display: block; }
+        .rank-tag { font-size: 0.85rem; color: #888; margin-top: 4px; display: block; }
+        .rank-score { font-weight: bold; color: var(--brand); font-size: 1.2rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首頁",
+        "item": "https://www.yourdomain.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "保險規劃",
+        "item": "https://www.yourdomain.com/insurance-planning/"
+      }]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "醫療保險報銷流程如何？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "一般醫療保險報銷流程包括：1. 接受治療並保留所有收據及醫療報告；2. 填寫保險公司提供的索償表格；3. 在指定時間內（通常為出院後30-90天）遞交文件；4. 等待保險公司批核並發放賠償金。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "壽險和儲蓄險的區別是什麼？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "人壽保險（壽險）主要功能是身故賠償，為家人提供財務保障；儲蓄保險則側重於長期的資產增值，通常含有現金價值，適合用於教育基金或退休規劃，保障成分相對較低。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "投保重大疾病險需要注意什麼？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "投保危疾保險時需注意：1. 疾病定義是否涵蓋早期危疾；2. 等候期（通常為60-90天）；3. 多次賠償條款；4. 是否有保費豁免功能。"
+        }
+      }]
+    }
+    </script>
+</head>
+<body>
+
+<nav class="sticky-nav">
+    <div class="nav-inner">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">2026 投資理財攻略</a>
+                <ul class="dropdown">
+                    <li><a href="planning.html">2026 理財規劃</a></li>
+                    <li><a href="leave.html">2026 職場請假攻略</a></li>
+                    <li><a href="savings.html">高息活期新選擇</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="compare.html">比較工具</a>
+                <ul class="dropdown">
+                    <li><a href="credit-card.html">信用卡比較</a></li>
+                    <li><a href="loan.html">私人貸款比較</a></li>
+                    <li><a href="stock-account.html">證券戶口比較</a></li>
+                    <li><a href="bank-account.html">銀行戶口比較</a></li>
+                    <li><a href="mortgage.html">按揭貸款比較</a></li>
+                    <li><a href="forex.html">外匯平台比較</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="life.html">理財生活</a>
+                <ul class="dropdown">
+                    <li><a href="saving-tips.html">儲蓄攻略</a></li>
+                    <li><a href="spending.html">精明消費</a></li>
+                    <li><a href="travel.html">旅遊理財</a></li>
+                    <li><a href="debt.html">債務管理</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="invest.html">投資增值</a>
+                <ul class="dropdown">
+                    <li><a href="stocks.html">股票證券</a></li>
+                    <li><a href="crypto.html">加密貨幣</a></li>
+                    <li><a href="forex-trading.html">外匯交易</a></li>
+                    <li><a href="etf.html">ETF / 基金投資</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="property.html">置業安居</a>
+                <ul class="dropdown">
+                    <li><a href="buying-home.html">買樓攻略</a></li>
+                    <li><a href="mortgage-rates.html">按揭貸款/房貸利率比較</a></li>
+                    <li><a href="housing-market.html">市場分析 > 房價趨勢</a></li>
+                    <li><a href="overseas.html">海外置產</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="insurance.html">保險規劃</a>
+                <ul class="dropdown">
+                    <li><a href="medical.html">醫療保險</a></li>
+                    <li><a href="critical.html">危疾保險</a></li>
+                    <li><a href="life.html">人壽保險</a></li>
+                    <li><a href="saving-insurance.html">儲蓄保險</a></li>
+                    <li><a href="basics.html">保險知識</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="career.html">事業發展</a>
+                <ul class="dropdown">
+                    <li><a href="startup.html">創業理財 > 副業/創業指南</a></li>
+                    <li><a href="retirement.html">退休規劃</a></li>
+                    <li><a href="workplace.html">職場攻略</a></li>
+                    <li><a href="tax.html">稅務須知 > 綜所稅報稅攻略</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="trends.html">趨勢 & 生活</a>
+                <ul class="dropdown">
+                    <li><a href="tech.html">科技新品</a></li>
+                    <li><a href="consumer.html">消費趨勢</a></li>
+                    <li><a href="mindset.html">財商教育</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <h1>保險規劃全攻略——醫療、危疾、人壽與儲蓄保險一站式了解</h1>
+        <p class="subtitle">全面解析各類保險產品，從基礎保障到資產增值，助您在人生不同階段做出最明智的投保決定。</p>
+        <div class="tags-cloud" style="border:none; margin-top:0;">
+            <a href="#medical" class="tag">#醫療保險</a>
+            <a href="#critical" class="tag">#重大疾病險</a>
+            <a href="#life" class="tag">#壽險規劃</a>
+            <a href="#savings" class="tag">#儲蓄型保險</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="breadcrumbs">
+        <a href="index.html">首頁</a> &gt; <span>保險規劃</span>
+    </div>
+</div>
+
+<main class="container">
+    
+    <section>
+        <div class="category-grid">
+            <a href="medical.html" class="category-card" id="medical">
+                <h3><i class="fa-solid fa-notes-medical"></i> 醫療保險</h3>
+                <p>全方位醫療保障指南。深入了解住院、手術、門診保障範圍，掌握高端醫療險與自願醫保（VHIS）的區別，以及詳細的理賠流程教學。</p>
+                <span class="read-more">查看醫療險種與理賠</span>
+            </a>
+
+            <a href="critical.html" class="category-card" id="critical">
+                <h3><i class="fa-solid fa-heart-pulse"></i> 危疾保險</h3>
+                <p>應對重大疾病的財務緩衝。分析癌症、心臟病、中風等危疾定義，如何計算足夠的保障額度，以及多重賠償條款的重要性。</p>
+                <span class="read-more">探索重疾險與保額</span>
+            </a>
+
+            <a href="life.html" class="category-card" id="life">
+                <h3><i class="fa-solid fa-umbrella"></i> 人壽保險</h3>
+                <p>留愛不留債，為家人建立安全網。比較定期壽險與終身壽險的優缺點，利用槓桿效應進行資產傳承與家庭責任規劃。</p>
+                <span class="read-more">了解壽險類型與規劃</span>
+            </a>
+
+            <a href="saving-insurance.html" class="category-card" id="savings">
+                <h3><i class="fa-solid fa-piggy-bank"></i> 儲蓄保險</h3>
+                <p>結合保障與理財。解析分紅保單、年金計劃與教育基金，分析內部回報率（IRR）與回本期，實現長線財富增值。</p>
+                <span class="read-more">查看儲蓄險回報分析</span>
+            </a>
+
+            <a href="basics.html" class="category-card" id="knowledge">
+                <h3><i class="fa-solid fa-book-open"></i> 保險知識</h3>
+                <p>新手必讀的保險詞典。解讀「不保事項」、「等候期」、「自負額」等專業術語，避開投保誤區，做個精明的投保人。</p>
+                <span class="read-more">學習保險常識</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="knowledge-section">
+        <h2 class="section-title">保險小百科：新手必備知識</h2>
+        <p style="text-align:center; color:#666; margin-bottom:30px;">投保前先搞懂這些名詞，避免買到不適合的「人情保單」。</p>
+        
+        <div class="knowledge-grid">
+            <div class="know-card">
+                <i class="fa-solid fa-hospital-user know-icon"></i>
+                <div class="know-content">
+                    <h4>醫療保險是什麼？</h4>
+                    <p>主要用來支付因疾病或意外產生的醫療費用。台灣常見為「實支實付」與「日額型」。現代規劃多建議優先選擇<strong>實支實付</strong>，以涵蓋高昂的自費手術與雜費。</p>
+                    <a href="medical.html" class="know-link">深入了解醫療險種類 &rarr;</a>
+                </div>
+            </div>
+
+            <div class="know-card">
+                <i class="fa-solid fa-umbrella know-icon"></i>
+                <div class="know-content">
+                    <h4>人壽保險是什麼？</h4>
+                    <p>當被保險人身故或全殘時，保險公司會給付一筆理賠金。核心功能是「留愛不留債」，為家人提供生活費或償還房貸。分為<strong>定期壽險</strong>（低保費高保障）與<strong>終身壽險</strong>。</p>
+                    <a href="life.html" class="know-link">壽險規劃攻略 &rarr;</a>
+                </div>
+            </div>
+
+            <div class="know-card">
+                <i class="fa-solid fa-heart-crack know-icon"></i>
+                <div class="know-content">
+                    <h4>危疾/重大疾病險是什麼？</h4>
+                    <p>一旦確診合約列表中的重大疾病（如癌症、中風），保險公司即給付一筆「一次性金錢」。這筆錢不限用途，可用於支付看護費、營養品或彌補無法工作的薪資損失。</p>
+                    <a href="critical.html" class="know-link">查看重疾險定義 &rarr;</a>
+                </div>
+            </div>
+
+            <div class="know-card">
+                <i class="fa-solid fa-coins know-icon"></i>
+                <div class="know-content">
+                    <h4>儲蓄保險是什麼？</h4>
+                    <p>兼具「強迫儲蓄」與「壽險保障」功能的保單。通常具有現金價值（Cash Value），適合保守型理財、教育基金或退休規劃，需注意閉鎖期與<strong>IRR內部回報率</strong>。</p>
+                    <a href="saving-insurance.html" class="know-link">儲蓄險回報分析 &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  <section id="rankings">
+        <h2 class="section-title">2026 熱門保險公司排名與評比</h2>
+        <p style="text-align:center; margin-bottom:30px;">依據市場佔有率、理賠速度、財務穩健度及用戶評價綜合整理。</p>
+        
+        <div class="ranking-container">
+            <div class="tabs-header">
+                <button class="tab-btn" onclick="openTab(event, 'Taiwan')">台灣 (Taiwan)</button>
+                <button class="tab-btn" onclick="openTab(event, 'HongKong')">香港 (Hong Kong)</button>
+                <button class="tab-btn active" onclick="openTab(event, 'Malaysia')">馬來西亞 (Malaysia)</button>
+                <button class="tab-btn" onclick="openTab(event, 'USA')">美國 (USA)</button>
+            </div>
+
+            <div id="Taiwan" class="tab-content" style="display: none;">
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <div class="rank-num">1</div>
+                        <div class="rank-info">
+                            <span class="rank-name">國泰人壽 (Cathay Life)</span>
+                            <span class="rank-tag">特點：數位服務完善、據點最多、產品線極廣</span>
+                        </div>
+                        <div class="rank-score">AAA</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">2</div>
+                        <div class="rank-info">
+                            <span class="rank-name">富邦人壽 (Fubon Life)</span>
+                            <span class="rank-tag">特點：投資型商品強勢、金控背景資源多</span>
+                        </div>
+                        <div class="rank-score">AA+</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">3</div>
+                        <div class="rank-info">
+                            <span class="rank-name">南山人壽 (Nan Shan Life)</span>
+                            <span class="rank-tag">特點：業務員素質高、醫療險產品設計靈活</span>
+                        </div>
+                        <div class="rank-score">AA</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">4</div>
+                        <div class="rank-info">
+                            <span class="rank-name">台灣人壽 (Taiwan Life)</span>
+                            <span class="rank-tag">特點：中信金控旗下、理賠爭議相對較少</span>
+                        </div>
+                        <div class="rank-score">AA-</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">5</div>
+                        <div class="rank-info">
+                            <span class="rank-name">凱基人壽 (原中國人壽)</span>
+                            <span class="rank-tag">特點：財務穩健、專注於退休規劃產品</span>
+                        </div>
+                        <div class="rank-score">A+</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="HongKong" class="tab-content" style="display: none;">
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <div class="rank-num">1</div>
+                        <div class="rank-info">
+                            <span class="rank-name">友邦保險 (AIA)</span>
+                            <span class="rank-tag">特點：泛亞地區龍頭、儲蓄分紅表現穩定</span>
+                        </div>
+                        <div class="rank-score">Top 1</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">2</div>
+                        <div class="rank-info">
+                            <span class="rank-name">保誠保險 (Prudential)</span>
+                            <span class="rank-tag">特點：危疾保障全面、英式分紅保單首選</span>
+                        </div>
+                        <div class="rank-score">Top 2</div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">3</div>
+                        <div class="rank-info">
+                            <span class="rank-name">宏利 (Manulife)</span>
+                            <span class="rank-tag">特點：強積金(MPF)市佔第一、醫療產品靈活</span>
+                        </div>
+                        <div class="rank-score">Top 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Malaysia" class="tab-content active" style="display: block;">
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <div class="rank-num">1</div>
+                        <div class="rank-info">
+                            <span class="rank-name">大東方人壽 (Great Eastern)</span>
+                            <span class="rank-tag">特點：歷史最悠久、醫藥卡口碑佳</span>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">2</div>
+                        <div class="rank-info">
+                            <span class="rank-name">AIA Malaysia</span>
+                            <span class="rank-tag">特點：Vitality 健康計劃受歡迎、數位化程度高</span>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">3</div>
+                        <div class="rank-info">
+                            <span class="rank-name">Allianz Malaysia</span>
+                            <span class="rank-tag">特點：投資連結型保單強勢、一般保險龍頭</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="USA" class="tab-content" style="display: none;">
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <div class="rank-num">1</div>
+                        <div class="rank-info">
+                            <span class="rank-name">聯合健康 (UnitedHealth Group)</span>
+                            <span class="rank-tag">特點：全美最大健康保險公司、網絡覆蓋極廣</span>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">2</div>
+                        <div class="rank-info">
+                            <span class="rank-name">大都會人壽 (MetLife)</span>
+                            <span class="rank-tag">特點：壽險與員工福利保險的領導者</span>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">3</div>
+                        <div class="rank-info">
+                            <span class="rank-name">紐約人壽 (New York Life)</span>
+                            <span class="rank-tag">特點：互助型公司結構、分紅壽險歷史悠久</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="latest-articles">
+        <h2 class="section-title">最新保險攻略</h2>
+        <div class="article-list">
+            <article class="article-item">
+                <div>
+                    <div class="article-meta">
+                        <span class="article-cat">醫療保險</span> | 2025-12-20
+                    </div>
+                    <h4><a href="#">2026 自願醫保計劃比較：扣稅優惠與保障範圍全解析</a></h4>
+                    <p>分析最新年度各保險公司的自願醫保（VHIS）產品，助您善用扣稅額度並獲得最佳醫療保障。</p>
+                </div>
+            </article>
+
+            <article class="article-item">
+                <div>
+                    <div class="article-meta">
+                        <span class="article-cat">儲蓄保險</span> | 2025-12-18
+                    </div>
+                    <h4><a href="#">短期 vs 長期儲蓄保險：IRR 內部回報率真實數據大公開</a></h4>
+                    <p>拆解市面上熱門儲蓄保單的紅利實現率，教您如何計算真實回報，避免陷入高息陷阱。</p>
+                </div>
+            </article>
+
+            <article class="article-item">
+                <div>
+                    <div class="article-meta">
+                        <span class="article-cat">保險知識</span> | 2025-12-15
+                    </div>
+                    <h4><a href="#">投保前必看！這5種情況下保險公司可能拒賠</a></h4>
+                    <p>深入解讀「最高誠信原則」與「既往病史」申報，確保您的理賠之路暢通無阻。</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="faq-container">
+        <h2 class="section-title">保險規劃常見問題 (FAQ)</h2>
+        
+        <div class="faq-item">
+            <details class="faq-details">
+                <summary class="faq-question">醫療保險報銷流程如何？</summary>
+                <div class="faq-answer">
+                    <p>一般流程包括：1. 住院前盡量申請預批核；2. 出院時保留收據正本、醫療報告及診斷證明；3. 填妥索償表格並在期限內（通常90天）遞交；4. 若有自負額，需先支付該部分費用。</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="faq-item">
+            <details class="faq-details">
+                <summary class="faq-question">壽險和儲蓄險的區別？</summary>
+                <div class="faq-answer">
+                    <p><strong>人壽保險</strong>主要應對身故風險，槓桿高，保費較低（定期壽險），目的是保障家人生活；<strong>儲蓄保險</strong>則著重資產累積，含現金價值，保費較高，適合退休或教育基金規劃，身故賠償額通常接近已繳保費或略高。</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="faq-item">
+            <details class="faq-details">
+                <summary class="faq-question">投保重大疾病險需要注意什麼？</summary>
+                <div class="faq-answer">
+                    <p>需留意：1. <strong>疾病定義</strong>（是否涵蓋原位癌或早期危疾）；2. <strong>等候期</strong>（投保後通常有60-90天不獲賠償）；3. <strong>生存期要求</strong>（確診後需生存達指定日數）；4. <strong>多重賠償</strong>（癌症復發或中風復發的保障條款）。</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section class="tags-cloud">
+        <h3>熱門標籤</h3>
+        <a href="#" class="tag">#全保計劃</a>
+        <a href="#" class="tag">#自願醫保</a>
+        <a href="#" class="tag">#扣稅年金</a>
+        <a href="#" class="tag">#投資相連壽險</a>
+        <a href="#" class="tag">#定期壽險</a>
+        <a href="#" class="tag">#高端醫療</a>
+        <a href="#" class="tag">#保單逆按揭</a>
+    </section>
+
+    <section class="bottom-cta">
+        <div class="container">
+            <h2>還不確定該如何規劃？</h2>
+            <p>獲取我們精心製作的「2026 家庭保險規劃檢核表」，或預約專業顧問進行 1 對 1 諮詢。</p>
+            <a href="#" class="btn-cta">下載保險規劃表</a>
+            <br><br>
+            <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: underline; font-size: 0.9rem;">預約免費諮詢</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 投資理財攻略. All Rights Reserved.</p>
+    </div>
+</footer>
+<script>
+    function openTab(evt, regionName) {
+        var i, tabcontent, tablinks;
+        
+        // 隱藏所有 tab content
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        
+        // 移除所有按鈕的 active class
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        
+        // 顯示當前選中的 tab 並添加 active class
+        document.getElementById(regionName).style.display = "block";
+        // 觸發重繪以執行淡入動畫
+        setTimeout(() => {
+             document.getElementById(regionName).classList.add("active");
+        }, 10);
+       
+        evt.currentTarget.className += " active";
+    }
+</script>
+</body>
+</html>
