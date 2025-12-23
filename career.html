@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事業發展全攻略：副業創業、職場升遷與退休稅務規劃 | 投資理財攻略</title>
+    <meta name="description" content="全方位職涯與創業指南。涵蓋上班族副業推薦、被動式收入建立、綜所稅報稅攻略及退休金規劃。教您如何開啟在線商店，實現財務自由。">
+    <meta name="keywords" content="創業理財, 副業推薦, 退休規劃, 綜所稅, 職場攻略, 被動式收入, 在美國創業, 艾財說, 在線商店">
+    <link rel="canonical" href="https://www.yourdomain.com/career-business/" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* ==================================== */
+        /* 0. 全局變量 (維持一致) */
+        /* ==================================== */
+        :root {
+            --brand: #0264C1;
+            --brand-dark: #014b90;
+            --accent: #FFC107;
+            --text-main: #333;
+            --text-light: #666;
+            --gray-bg: #f9fbfd;
+            --maxw: 1200px;
+            --nav-height: 70px;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--nav-height);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+        /* ==================================== */
+        /* 1. 導航欄代碼 (您提供的原始代碼) */
+        /* ==================================== */
+        .sticky-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+            background: linear-gradient(90deg, #0264C1, #014b90);
+            z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex; justify-content: center;
+        }
+        .nav-inner { width: 100%; max-width: var(--maxw); display: flex; align-items: center; padding: 0 20px; }
+        .nav-menu { display: flex; width: 100%; justify-content: space-between; height: 100%; }
+        .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-item > a { color: #fff; font-size: 15px; font-weight: 500; padding: 0 10px; opacity: 0.9; }
+        .nav-item:hover > a { opacity: 1; background: rgba(255,255,255,0.1); }
+        .dropdown {
+            display: none; position: absolute; top: 100%; left: 0;
+            background: #fff; min-width: 220px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            border-top: 3px solid var(--accent); padding: 10px 0; border-radius: 0 0 6px 6px;
+        }
+        .nav-item:hover .dropdown { display: block; }
+        .dropdown li a { display: block; padding: 10px 20px; color: #333; font-size: 14px; border-bottom: 1px solid #f5f5f5; }
+        .dropdown li a:hover { background: #f0f7ff; color: var(--brand); padding-left: 25px; }
+        @media (max-width: 1100px) {
+            .nav-menu { overflow-x: auto; justify-content: flex-start; padding-right: 20px; }
+            .nav-item { flex-shrink: 0; }
+        }
+
+        /* ==================================== */
+        /* 2. 頁面專屬樣式 */
+        /* ==================================== */
+        .hero {
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            padding: 70px 0; text-align: center; border-bottom: 1px solid #eee;
+        }
+        .hero h1 { font-size: 2.5rem; color: var(--brand-dark); margin-bottom: 15px; }
+        .hero p.subtitle { font-size: 1.2rem; color: var(--text-light); max-width: 800px; margin: 0 auto 30px; }
+        
+        .breadcrumbs { padding: 15px 0; font-size: 0.9rem; color: #888; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        .section-title { font-size: 2rem; text-align: center; margin-bottom: 40px; color: var(--text-main); position: relative; margin-top: 60px; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--brand); margin: 15px auto 0; }
+
+        /* Pillar Cards Grid */
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .pillar-card { 
+            background: white; border: 1px solid #eee; border-radius: 12px; padding: 30px; 
+            transition: 0.3s; display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden;
+        }
+        .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--brand); opacity: 0; transition: 0.3s; }
+        .pillar-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .pillar-card:hover::before { opacity: 1; }
+        .pillar-card h3 { color: var(--brand); margin-top: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        .pillar-card p { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+        .pillar-links { border-top: 1px solid #eee; padding-top: 15px; }
+        .pillar-links a { display: block; font-size: 0.9rem; color: var(--text-main); padding: 5px 0; }
+        .pillar-links a:hover { color: var(--brand); padding-left: 5px; }
+        .pillar-links a::before { content: '•'; color: var(--accent); margin-right: 8px; }
+
+        /* SEO/Spider Pool Content Area */
+        .seo-content-box { background: #f8fbff; border-radius: 15px; padding: 40px; margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .seo-text h3 { color: var(--brand-dark); font-size: 1.6rem; margin-top: 0; }
+        .seo-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .hot-topic-tag { background: white; border: 1px solid #dcebf9; color: var(--text-light); padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; transition: 0.2s; }
+        .hot-topic-tag:hover { border-color: var(--brand); color: var(--brand); transform: scale(1.05); }
+
+        /* Article List */
+        .article-list { display: flex; flex-direction: column; gap: 20px; }
+        .article-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 20px 0; }
+        .article-info h4 { margin: 0 0 8px 0; font-size: 1.2rem; }
+        .article-info h4 a:hover { color: var(--brand); }
+        .article-meta { font-size: 0.85rem; color: #999; }
+        .article-tag { background: var(--accent); color: #333; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-right: 10px; }
+
+        /* FAQ & Tags */
+        .faq-container { background: var(--gray-bg); border-radius: 15px; padding: 40px; }
+        .faq-item { background: white; margin-bottom: 15px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        summary.faq-question { padding: 20px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; color: var(--brand-dark); }
+        .faq-answer { padding: 0 20px 20px 20px; color: #555; line-height: 1.6; border-top: 1px solid #f5f5f5; }
+
+        .tags-cloud { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee; }
+        .tag { display: inline-block; padding: 8px 18px; background: #eee; color: #555; border-radius: 20px; margin: 6px; font-size: 0.9rem; }
+        .tag:hover { background: var(--brand); color: white; }
+
+        /* Bottom CTA */
+        .bottom-cta { background: linear-gradient(45deg, var(--brand-dark), #003366); color: white; padding: 60px 20px; text-align: center; border-radius: 12px; margin-top: 60px; }
+        .btn-cta { background: var(--accent); color: var(--text-main); padding: 15px 35px; border-radius: 30px; font-weight: bold; display: inline-block; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; }
+        .btn-cta:hover { transform: scale(1.05); background: #ffca28; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .seo-content-box { grid-template-columns: 1fr; }
+            .article-item { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "創業初期如何管理資金與稅務？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "創業初期建議將公私帳戶分開，並善用記帳軟體追蹤現金流。在稅務方面，若為個人創業，需注意個人綜所稅的營利所得申報；若成立公司，則需了解營業稅與營所稅的差異，善用合法抵稅項目。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "個人稅務（綜所稅）有哪些合法減免方式？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "常見減免包括：善用每人基本生活費差額、列舉扣除額（如醫藥費、保險費、房貸利息）、以及自願提繳退休金（最高6%）可從當年度所得總額中全數扣除，達到節稅效果。"
+        }
+      }, {
+        "@type": "Question",
+        "name": "上班族如何開始經營副業？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "建議從低成本的「輕創業」開始，例如利用下班時間經營在線商店、接案或建立被動式收入（如聯盟行銷）。尋找兼職平台測試市場需求，待收入穩定後再考慮全職投入。"
+        }
+      }]
+    }
+    </script>
+</head>
+<body>
+
+<nav class="sticky-nav">
+    <div class="nav-inner">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">2026 投資理財攻略</a>
+                <ul class="dropdown"><li><a href="planning.html">2026 理財規劃</a></li><li><a href="savings.html">高息活期</a></li></ul>
+            </li>
+            <li class="nav-item"><a href="compare.html">比較工具</a>
+                <ul class="dropdown"><li><a href="credit-card.html">信用卡比較</a></li><li><a href="loan.html">私人貸款</a></li></ul>
+            </li>
+            <li class="nav-item"><a href="life.html">理財生活</a></li>
+            <li class="nav-item"><a href="invest.html">投資增值</a></li>
+            <li class="nav-item"><a href="property.html">置業安居</a></li>
+            <li class="nav-item"><a href="insurance.html">保險規劃</a></li>
+            <li class="nav-item"><a href="career.html">事業發展</a>
+                <ul class="dropdown">
+                    <li><a href="startup.html">創業理財</a></li>
+                    <li><a href="retirement.html">退休規劃</a></li>
+                    <li><a href="workplace.html">職場攻略</a></li>
+                    <li><a href="tax.html">稅務須知</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="trends.html">趨勢 & 生活</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <h1>事業發展全攻略——創業理財、稅務須知與退休規劃</h1>
+        <p class="subtitle">無論是追求職場升遷、尋找下班副業機會，或是規劃理想的退休生活，這裡提供您最實用的財務與職涯建議。</p>
+        <a href="#startup" class="btn-cta" style="margin-top:0; padding:10px 25px; font-size:0.95rem;">探索創業靈感</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="breadcrumbs">
+        <a href="index.html">首頁</a> &gt; <span>事業發展</span>
+    </div>
+</div>
+
+<main class="container">
+    
+    <section>
+        <div class="pillar-grid" style="margin-top: 40px;">
+            <div class="pillar-card" id="startup">
+                <h3><i class="fa-solid fa-rocket"></i> 創業理財</h3>
+                <p>從零開始的創業指南。涵蓋資金募集、商業模式設計及風險管理。</p>
+                <div class="pillar-links">
+                    <a href="startup-funding.html">創業融資與貸款比較</a>
+                    <a href="side-hustle.html">上班族副業與兼職平台</a>
+                    <a href="online-store.html">學習如何開始您的在線商店</a>
+                </div>
+            </div>
+
+            <div class="pillar-card">
+                <h3><i class="fa-solid fa-file-invoice-dollar"></i> 稅務須知</h3>
+                <p>不再為報稅頭痛。掌握綜所稅申報技巧與企業節稅策略。</p>
+                <div class="pillar-links">
+                    <a href="income-tax.html">綜所稅報稅全攻略</a>
+                    <a href="business-tax.html">個人創業與營業稅</a>
+                    <a href="tax-deduction.html">合法減免與扣除額詳解</a>
+                </div>
+            </div>
+
+            <div class="pillar-card">
+                <h3><i class="fa-solid fa-umbrella-beach"></i> 退休規劃</h3>
+                <p>提早佈局第二人生。勞保勞退計算、養老金缺口分析。</p>
+                <div class="pillar-links">
+                    <a href="pension.html">勞退自提優缺點分析</a>
+                    <a href="retirement-invest.html">退休投資組合建議</a>
+                    <a href="fire-movement.html">FIRE運動與財務自由</a>
+                </div>
+            </div>
+
+            <div class="pillar-card">
+                <h3><i class="fa-solid fa-briefcase"></i> 職場攻略</h3>
+                <p>提升職場競爭力。薪資談判技巧、轉換跑道與職涯升級。</p>
+                <div class="pillar-links">
+                    <a href="salary-negotiation.html">談判技巧與薪資結構</a>
+                    <a href="career-change.html">中年轉職生存指南</a>
+                    <a href="upskilling.html">高價值技能學習路徑</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-content-box">
+        <div class="seo-text">
+            <h3><i class="fa-solid fa-lightbulb" style="color:var(--accent);"></i> 新手上路：熱門副業與創業靈感</h3>
+            <p>想增加收入來源？探索我們整理的<strong>下班副業</strong>清單與<strong>被動式收入</strong>策略，為成功打下堅實的基礎。</p>
+            <p style="font-size:0.9rem; color:#666;">無論是尋找外網賺錢機會，還是想知道在美國創業做什麼，這裡都有豐富的案例分析。</p>
+            <a href="beginner-guide.html" style="color:var(--brand); font-weight:bold; margin-top:10px; display:inline-block;">查看新手上路指南 &rarr;</a>
+        </div>
+        <div class="seo-tags">
+            <a href="#" class="hot-topic-tag">#下班副業</a>
+            <a href="#" class="hot-topic-tag">#找兼職的平台</a>
+            <a href="#" class="hot-topic-tag">#被動式收入</a>
+            <a href="#" class="hot-topic-tag">#在線商店教學</a>
+            <a href="#" class="hot-topic-tag">#個人創業</a>
+            <a href="#" class="hot-topic-tag">#自己創業可以做什麼</a>
+            <a href="#" class="hot-topic-tag">#在美國創業做什麼</a>
+            <a href="#" class="hot-topic-tag">#外網賺錢</a>
+            <a href="#" class="hot-topic-tag">#艾財說Alex</a> <a href="#" class="hot-topic-tag">#愛財說</a>
+        </div>
+    </section>
+
+    <section style="margin-top: 60px;">
+        <h2 class="section-title">最新事業發展指南</h2>
+        <div class="article-list">
+            <article class="article-item">
+                <div class="article-info">
+                    <span class="article-tag">退休規劃</span>
+                    <h4><a href="#">2026 退休金試算教學：勞保破產危機下如何自救？</a></h4>
+                    <p class="article-meta">2026-01-15 | 閱讀時間：5分鐘</p>
+                </div>
+                <div class="article-action">
+                    <a href="#" style="color:var(--brand);"><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </article>
+
+            <article class="article-item">
+                <div class="article-info">
+                    <span class="article-tag">創業理財</span>
+                    <h4><a href="#">新手上路：如何開始您的在線商店？選品與平台比較</a></h4>
+                    <p class="article-meta">2026-01-12 | 閱讀時間：8分鐘</p>
+                </div>
+                <div class="article-action">
+                    <a href="#" style="color:var(--brand);"><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </article>
+
+            <article class="article-item">
+                <div class="article-info">
+                    <span class="article-tag">稅務須知</span>
+                    <h4><a href="#">綜所稅報稅攻略：個人創業與接案者的節稅秘籍</a></h4>
+                    <p class="article-meta">2026-01-08 | 閱讀時間：6分鐘</p>
+                </div>
+                <div class="article-action">
+                    <a href="#" style="color:var(--brand);"><i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="faq-container" style="margin-top: 60px;">
+        <h2 class="section-title">常見問題 FAQ</h2>
+        
+        <div class="faq-item">
+            <details>
+                <summary class="faq-question">創業初期如何管理資金？</summary>
+                <div class="faq-answer">
+                    <p>初期資金管理的核心是「公私分明」。建議開設獨立的商業帳戶，並嚴格控管現金流（Cash Flow）。針對小額創業，可利用記帳軟體追蹤每一筆開銷，並預留至少6個月的營運週轉金。</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="faq-item">
+            <details>
+                <summary class="faq-question">個人稅務（綜所稅）有哪些合法減免？</summary>
+                <div class="faq-answer">
+                    <p>除了每人的基本免稅額外，善用「列舉扣除額」（如保險費、房貸利息、醫藥費、捐贈）往往比標準扣除額划算。此外，上班族若有兼職收入，需注意屬於「薪資所得」還是「執行業務所得」，後者可扣除成本費用。</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="faq-item">
+            <details>
+                <summary class="faq-question">退休理财规划怎么做？</summary>
+                <div class="faq-answer">
+                    <p>退休規劃越早開始越好。1. 計算退休金缺口（目標生活費 - 社會保險給付）；2. 利用「勞退自提」節稅並累積本金；3. 建立多元投資組合（如ETF、高股息股票或年金險）來創造被動式收入。</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section class="tags-cloud">
+        <a href="#" class="tag">#創業融資</a>
+        <a href="#" class="tag">#企業稅務</a>
+        <a href="#" class="tag">#個人稅務</a>
+        <a href="#" class="tag">#退休投資</a>
+        <a href="#" class="tag">#斜槓青年</a>
+        <a href="#" class="tag">#數位遊牧</a>
+        <a href="#" class="tag">#跨境電商</a>
+    </section>
+
+    <section class="bottom-cta">
+        <div class="container">
+            <h2>準備好開創您的事業第二曲線了嗎？</h2>
+            <p>獲取我們精心編寫的「2026 創業與退休規劃實戰指南」，踏出財務自由的第一步。</p>
+            <a href="#" class="btn-cta">下載完整規劃指南</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 投資理財攻略. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
