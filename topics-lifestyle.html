@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 生活理財與消費趨勢全攻略 | 專題、旅遊、職場一站式指南</title>
+    <meta name="description" content="匯集2026最新理財心法、消費省錢指南、旅遊度假攻略及職場創業洞察。提供新手成長路徑與每週熱門文章排行榜。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. 全局變數定義 (修復顏色未定義問題) */
+        :root {
+            --brand-color: #0264C1;
+            --brand-dark: #014b90;
+            --accent-color: #FF9800;
+            --secondary-color: #2EC4B6;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-color: #eeeeee;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.08);
+            --nav-height: 70px;
+            --max-width: 1200px;
+        }
+
+        /* 2. 基礎重置 */
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Noto Sans TC', "Microsoft JhengHei", sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            margin: 0; 
+            background: var(--bg-body); 
+            padding-top: var(--nav-height); /* 避免內容被導航列遮擋 */
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        h1, h2, h3, h4 { margin-top: 0; font-weight: 700; line-height: 1.3; }
+
+        /* 3. 導航欄 (Sticky Header) */
+        .sticky-header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-nav {
+            width: 90%;
+            max-width: var(--max-width);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--brand-color); }
+        .main-menu { display: flex; gap: 20px; }
+        .menu-item { position: relative; }
+        .menu-item > a {
+            padding: 10px 15px;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+        .menu-item > a:hover, .menu-item.active > a {
+            color: var(--brand-color);
+            background: #eef5fc;
+        }
+
+        /* 下拉選單優化 */
+        .submenu {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--bg-card);
+            min-width: 200px;
+            box-shadow: var(--shadow-md);
+            border-radius: 8px;
+            padding: 10px 0;
+            transition: 0.3s;
+            z-index: 1001;
+        }
+        .menu-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .submenu li a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+        .submenu li a:hover {
+            background: var(--brand-color);
+            color: #fff;
+        }
+
+        /* 4. Hero 區域 */
+        .hero {
+            background: linear-gradient(135deg, #e0f2ff 0%, #fff 100%);
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .hero h1 { font-size: 2.5rem; color: var(--brand-dark); margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; color: var(--text-light); max-width: 700px; margin: 0 auto 30px; }
+        
+        .tag-cloud-hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .tag-pill {
+            background: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .tag-pill:hover { border-color: var(--brand-color); color: var(--brand-color); }
+        .tag-pill.hot { background: #fff0f0; border-color: #ffcccc; color: #d32f2f; }
+
+        /* 5. 趨勢地圖 (Grid 佈局) */
+        .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2rem; color: var(--brand-dark); margin-bottom: 10px; }
+        
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        .map-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            border-top: 4px solid transparent;
+        }
+        .map-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .card-travel { border-color: #4CAF50; }
+        .card-hk { border-color: #E91E63; }
+        .card-career { border-color: #2196F3; }
+        .card-money { border-color: #FFC107; }
+        
+        .map-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .keyword-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .kw-tag { font-size: 0.8rem; color: var(--text-light); background: #f5f5f5; padding: 4px 10px; border-radius: 4px; }
+        .kw-tag:hover { background: #e0e0e0; color: #000; }
+
+        /* 6. 新手成長地圖 */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .guide-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+        .guide-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .guide-img { width: 100%; height: 160px; object-fit: cover; }
+        .guide-body { padding: 20px; }
+        .guide-step { 
+            display: inline-block; 
+            font-size: 0.75rem; font-weight: bold; color: var(--accent-color); 
+            margin-bottom: 5px; letter-spacing: 1px;
+        }
+        .guide-list li { margin-bottom: 8px; font-size: 0.9rem; }
+        .guide-list a:hover { color: var(--brand-color); text-decoration: underline; }
+
+        /* 7. 主內容區與側邊欄 (Layout) */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr; /* 左寬右窄 */
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        /* 文章 Tab 與列表 */
+        .tab-header { margin-bottom: 25px; display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; }
+        .tab-btn {
+            background: none; border: none; padding: 10px 20px;
+            font-size: 1rem; cursor: pointer; color: var(--text-light);
+            border-radius: 50px; transition: 0.3s; white-space: nowrap;
+        }
+        .tab-btn.active, .tab-btn:hover { background: var(--brand-color); color: white; }
+
+        .article-card {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+        .article-card:hover { box-shadow: var(--shadow-md); }
+        .article-thumb { width: 240px; object-fit: cover; }
+        .article-content { padding: 25px; flex: 1; }
+        .article-meta { font-size: 0.85rem; color: #999; margin-bottom: 10px; }
+        .article-tag { color: var(--brand-color); font-weight: bold; margin-right: 10px; }
+        .article-title { font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main); }
+        .article-card:hover .article-title { color: var(--brand-color); }
+        .article-excerpt { font-size: 0.95rem; color: var(--text-light); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* 趨勢雷達樣式 */
+        .trend-container {
+            background: #2b2d42; color: #fff;
+            padding: 30px; border-radius: 16px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+            align-items: center;
+        }
+        .bar-item { margin-bottom: 15px; }
+        .bar-label { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px; }
+        .bar-track { background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 4px; width: var(--w); }
+
+        /* 側邊欄小工具 */
+        .widget-box {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+        .widget-title { font-size: 1.1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+        
+        .hot-list .hot-item { display: flex; align-items: baseline; margin-bottom: 15px; }
+        .hot-num { 
+            font-size: 1.2rem; font-weight: 900; color: #ddd; margin-right: 15px; width: 20px; 
+            font-style: italic;
+        }
+        .hot-item:nth-child(1) .hot-num { color: #FFD700; }
+        .hot-item:nth-child(2) .hot-num { color: #C0C0C0; }
+        .hot-item:nth-child(3) .hot-num { color: #CD7F32; }
+        .hot-title { font-size: 0.95rem; font-weight: 500; }
+        .hot-title:hover { color: var(--brand-color); }
+
+        .latest-mini-item { display: flex; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #f5f5f5; padding-bottom: 15px; }
+        .latest-mini-thumb { width: 60px; height: 60px; border-radius: 6px; object-fit: cover; }
+        .latest-mini-info h4 { font-size: 0.9rem; margin-bottom: 5px; }
+        .latest-mini-date { font-size: 0.75rem; color: #999; }
+
+        /* 排行榜 */
+        .ranking-widget .rank-item {
+            display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee;
+        }
+        .rank-badge {
+            background: #eee; width: 24px; height: 24px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: bold; margin-right: 12px;
+        }
+        .rank-item:nth-child(1) .rank-badge { background: #FF9800; color: white; }
+        .rank-item:nth-child(2) .rank-badge { background: #9E9E9E; color: white; }
+        .rank-item:nth-child(3) .rank-badge { background: #795548; color: white; }
+        
+        .rank-content { flex: 1; }
+        .rank-title { display: block; font-weight: 600; font-size: 0.95rem; }
+        .rank-sub { font-size: 0.8rem; color: #888; }
+        .rank-score { font-weight: bold; color: var(--brand-color); font-size: 0.9rem; }
+
+        /* 工具 Grid */
+        .tools-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;
+        }
+        .tool-card {
+            background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); text-align: center;
+        }
+        .tool-header { color: white; padding: 15px; font-weight: bold; letter-spacing: 1px; }
+        .tool-body { padding: 25px; }
+        .tool-btn {
+            display: inline-block; margin-top: 15px; padding: 8px 25px;
+            border: 1px solid var(--text-light); color: var(--text-main); border-radius: 20px; font-size: 0.9rem;
+        }
+        .tool-btn:hover { background: var(--text-main); color: white; border-color: var(--text-main); }
+
+        /* 常見問題 FAQ */
+        .faq-box { background: var(--bg-card); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); }
+        .faq-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; cursor: pointer; }
+        .faq-q { font-weight: bold; font-size: 1.1rem; color: var(--brand-dark); margin-bottom: 8px; }
+        .faq-a { color: var(--text-light); display: none; }
+        .faq-item.active .faq-a { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* 8. 手機響應式 (RWD) */
+        @media (max-width: 768px) {
+            .main-menu { display: none; } /* 簡單隱藏，實際專案需改為漢堡選單 */
+            .main-nav { justify-content: center; }
+            .hero h1 { font-size: 1.8rem; }
+            
+            .guide-grid { grid-template-columns: 1fr; }
+            .main-layout { grid-template-columns: 1fr; }
+            .article-card { flex-direction: column; }
+            .article-thumb { width: 100%; height: 200px; }
+            .trend-container { grid-template-columns: 1fr; }
+            
+            /* 手機版 Tab 可滑動 */
+            .tab-header { padding-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="sticky-header">
+    <nav class="main-nav">
+	<a href="#" class="logo">2026 趨勢攻略</a>
+		        <ul class="main-menu">
+            <li class="menu-item">
+                <a href="business-news.html">商業新聞</a>
+                <ul class="submenu">
+                    <li><a href="#">即時新聞</a></li>
+                    <li><a href="#">宏觀經濟</a></li>
+                    <li><a href="#">產業動態</a></li>
+                    <li><a href="#">新創企業</a></li>
+                    <li><a href="#">企業管理</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="investment.html">投資世界</a>
+                <ul class="submenu">
+                    <li><a href="#">股票證券</a></li>
+                    <li><a href="#">加密貨幣</a></li>
+                    <li><a href="#">外匯交易</a></li>
+                    <li><a href="#">基金債券</a></li>
+                    <li><a href="#">退休理財 / 保險</a></li>
+                    <li><a href="#">即時行情</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="personal-finance.html">個人金融</a>
+                <ul class="submenu">
+                    <li><a href="#">信用卡</a></li>
+                    <li><a href="#">私人貸款</a></li>
+                    <li><a href="#">銀行戶口</a></li>
+                    <li><a href="#">優惠 / 獎勵計劃</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="real-estate.html">地產市場</a>
+                <ul class="submenu">
+                    <li><a href="#">樓市分析</a></li>
+                    <li><a href="#">買賣攻略</a></li>
+                    <li><a href="#">按揭資訊</a></li>
+                    <li><a href="#">海外物業</a></li>
+                    <li><a href="#">租金 / 貸款工具</a></li>
+                </ul>
+            </li>
+            <li class="menu-item" >
+                <a href="topics-lifestyle.html">專題 & 生活</a>
+                <ul class="submenu">
+                    <li><a href="#">專題洞察</a></li>
+                    <li><a href="#">理財心法</a></li>
+                    <li><a href="#">消費指南</a></li>
+                    <li><a href="#">旅遊休閒</a></li>
+                    <li><a href="#">創業職場</a></li>
+                    <li><a href="#">新潮趨勢</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="comparison-tools.html">比較工具</a>
+                <ul class="submenu">
+                    <li><a href="#">信用卡比較</a></li>
+                    <li><a href="#">交易所比較</a></li>
+                    <li><a href="#">外匯券商比較</a></li>
+                    <li><a href="#">銀行戶口比較</a></li>
+                    <li><a href="#">貸款比較</a></li>
+                    <li><a href="#">股票戶口比較</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<header class="hero">
+    <h1>2026 趨勢生活：掌握流量與財富密碼</h1>
+    <p>匯集全網最火話題，從香港在地生活智慧、高性價比旅遊攻略到職場 AI 生存術。</p>
+    <div class="tag-cloud-hero">
+       <span class="tag-pill hot">#理財聖經</span>
+        <span class="tag-pill">#日本旅行推薦</span>
+        <span class="tag-pill">#香港生活成本</span>
+        <span class="tag-pill hot">#職場PUA</span>
+        <span class="tag-pill">#東南亞旅遊</span>
+        <span class="tag-pill">#香港潮流聖地</span>
+        <span class="tag-pill">#生成式AI工作法</span>
+        <span class="tag-pill">#理財型房貸</span>
+        <span class="tag-pill hot">#理財安心行詐騙</span>
+        <span class="tag-pill">#香港職場趣事</span>
+        <span class="tag-pill">#創業指南</span>
+        <span class="tag-pill">#CP值手機</span>
+        <span class="tag-pill">#歐洲窮遊</span>
+        <span class="tag-pill">#職場霸凌申訴</span>
+    </div>
+</header>
+
+<section class="container">
+    <div class="section-title">
+        <h2>📊 2026 趨勢解讀地圖</h2>
+    </div>
+    <div class="map-grid">
+        <div class="map-card card-travel">
+            <i class="map-icon">✈️</i>
+            <h3>旅行推薦與攻略</h3>
+            <p style="font-size:0.9rem; color:#666;">2026 最火的平替旅遊目的地，拒絕人擠人。</p>
+            <div class="keyword-list">
+                <a href="#" class="kw-tag">旅行推薦國家</a>
+                <a href="#" class="kw-tag">日本旅行推薦</a>
+                <a href="#" class="kw-tag">東南亞旅行推薦</a>
+                <a href="#" class="kw-tag">歐洲旅行推薦</a>
+                <a href="#" class="kw-tag">台灣旅行推薦</a>
+                <a href="#" class="kw-tag">旅行後背包推薦</a>
+                <a href="#" class="kw-tag">旅行相機排行</a>
+            </div>
+        </div>
+        <div class="map-card card-hk">
+            <i class="map-icon">🏙️</i>
+            <h3>香港在地生活</h3>
+            <p style="font-size:0.9rem; color:#666;">從潮流聖地到生活成本分析，最真實的香港。</p>
+            <div class="keyword-list">
+                <a href="#" class="kw-tag">香港職場文化</a>
+                <a href="#" class="kw-tag">職場霸凌申訴</a>
+                <a href="#" class="kw-tag">職場PUA</a>
+                <a href="#" class="kw-tag">生成式AI工作法</a>
+                <a href="#" class="kw-tag">香港職場性騷擾</a>
+                <a href="#" class="kw-tag">職場英文</a>
+                <a href="#" class="kw-tag">職場浮生記</a>
+            </div>
+        </div>
+        <div class="map-card card-career">
+            <i class="map-icon">💼</i>
+            <h3>職場生存 & AI</h3>
+            <p style="font-size:0.9rem; color:#666;">如何用 AI 武裝自己並避免踩雷？</p>
+            <div class="keyword-list">
+                <a href="#" class="kw-tag">職場PUA</a>
+                <a href="#" class="kw-tag">AI工作法</a>
+                <a href="#" class="kw-tag">英文溝通</a>
+				 <a href="#" class="kw-tag">香港職場性騷擾</a>
+                <a href="#" class="kw-tag">職場英文</a>
+                <a href="#" class="kw-tag">職場浮生記</a>
+				
+            </div>
+        </div>
+        <div class="map-card card-money">
+            <i class="map-icon">💰</i>
+            <h3>理財心法 & 防詐</h3>
+            <p style="font-size:0.9rem; color:#666;">守住你的錢包，避開最新的金融陷阱。</p>
+            <div class="keyword-list">
+                <a href="#" class="kw-tag">理財型房貸</a>
+                <a href="#" class="kw-tag">ETF推薦</a>
+                <a href="#" class="kw-tag">退休規劃</a>
+				<a href="#" class="kw-tag">理財聖經</a>
+                <a href="#" class="kw-tag">理財規劃師</a>
+                <a href="#" class="kw-tag">理財寶</a>                              
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: #fff; border-top: 1px solid #f0f0f0; padding: 60px 0;">
+    <div class="container">
+        <div class="section-title">
+            <h2>🌱 新手成長地圖</h2>
+            <p style="color: #666;">跟隨我們的步驟，從理財小白變身生活達人</p>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-card">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600" class="guide-img" alt="Step 1">
+                <div class="guide-body">
+                    <span class="guide-step">STEP 1: 建立觀念</span>
+                    <h3>理財心法入門</h3>
+                    <ul class="guide-list">
+                        <li><a href="#">👉 什麼是複利效應？</a></li>
+                        <li><a href="#">👉 6個帳戶理財法教學</a></li>
+                        <li><a href="#">👉 先支付自己：儲蓄第一</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600" class="guide-img" alt="Step 2">
+                <div class="guide-body">
+                    <span class="guide-step">STEP 2: 精明消費</span>
+                    <h3>生活省錢實戰</h3>
+                    <ul class="guide-list">
+                        <li><a href="#">👉 信用卡挑選邏輯</a></li>
+                        <li><a href="#">👉 斷捨離：極簡生活指南</a></li>
+                        <li><a href="#">👉 購物前的 3 個自問</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600" class="guide-img" alt="Step 3">
+                <div class="guide-body">
+                    <span class="guide-step">STEP 3: 投資自我</span>
+                    <h3>職場與副業</h3>
+                    <ul class="guide-list">
+                        <li><a href="#">👉 打造個人品牌 IP</a></li>
+                        <li><a href="#">👉 新手如何開始接案？</a></li>
+                        <li><a href="#">👉 談判薪資的藝術</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600" class="guide-img" alt="Step 4">
+                <div class="guide-body">
+                    <span class="guide-step">STEP 4: 享受生活</span>
+                    <h3>旅遊與體驗</h3>
+                    <ul class="guide-list">
+                        <li><a href="#">👉 哩程兌換機票攻略</a></li>
+                        <li><a href="#">👉 說走就走的行程規劃</a></li>
+                        <li><a href="#">👉 在地人推薦的美食地圖</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container main-layout">
+    
+    <main class="content-col">
+        <div class="tab-header" id="categoryTabs">
+            <button class="tab-btn active" onclick="switchTab('all')">🔥 全部推薦</button>
+            <button class="tab-btn" onclick="switchTab('mindset')">💡 理財心法</button>
+            <button class="tab-btn" onclick="switchTab('travel')">✈️ 旅遊休閒</button>
+            <button class="tab-btn" onclick="switchTab('career')">💼 創業職場</button>
+        </div>
+
+        <div id="articleContainer">
+            <article class="article-card" data-category="mindset">
+                <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600" alt="理財" class="article-thumb">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-tag">理財心法</span> • 2026-02-15
+                    </div>
+                    <a href="#"><h3 class="article-title">不再當月光族！適合 20-30 歲的「無痛存錢法」完整教學</h3></a>
+                    <p class="article-excerpt">無需過度節省，只要改變三個消費習慣，利用 50/30/20 法則，每年輕鬆多存 10 萬元...</p>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="travel">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600" alt="旅遊" class="article-thumb">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-tag">旅遊休閒</span> • 2026-02-12
+                    </div>
+                    <a href="#"><h3 class="article-title">2026 日本退稅新制懶人包：遊客必看省錢攻略</h3></a>
+                    <p class="article-excerpt">日本消費稅改制後，遊客如何最大化退稅優惠？整理最新免稅店名單與電子支付回饋技巧...</p>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="career">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600" alt="職場" class="article-thumb">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-tag">創業職場</span> • 2026-02-08
+                    </div>
+                    <a href="#"><h3 class="article-title">AI 時代的生存指南：這些技能比寫程式更重要</h3></a>
+                    <p class="article-excerpt">ChatGPT 與 Claude 盛行下，職場人如何轉型？培養「提問力」與「整合力」將成為關鍵...</p>
+                </div>
+            </article>
+        </div>
+
+        <div style="margin-top: 50px;">
+            <div class="section-title" style="text-align: left;">
+                <h2>📡 2026 專題洞察趨勢雷達</h2>
+            </div>
+            <div class="trend-container">
+                <div class="trend-info">
+                    <h3 style="color: #4cc9f0; margin-top:0;">趨勢解讀</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.8; opacity: 0.9;">
+                        本年度「體驗式消費」與「副業創業」熱度攀升。AI 工具普及讓職場效率成為焦點，而旅遊則偏向高性價比的小眾目的地。
+                    </p>
+                    <a href="#" style="color: #4cc9f0; font-weight: bold;">查看完整報告 →</a>
+                </div>
+                <div class="trend-bars">
+                    <div class="bar-item">
+                        <span class="bar-label">AI 輔助工作 <span style="opacity:0.7">95%</span></span>
+                        <div class="bar-track"><div class="bar-fill" style="--w: 95%; background: #4cc9f0;"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">小眾旅遊 <span style="opacity:0.7">88%</span></span>
+                        <div class="bar-track"><div class="bar-fill" style="--w: 88%; background: #f72585;"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">被動收入 <span style="opacity:0.7">82%</span></span>
+                        <div class="bar-track"><div class="bar-fill" style="--w: 82%; background: #ffd60a;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <aside class="sidebar">
+        
+        <div class="widget-box">
+            <h3 class="widget-title">🔥 本週熱門閱讀</h3>
+            <ul class="hot-list">
+                <li class="hot-item">
+                    <span class="hot-num">1</span>
+                    <a href="#" class="hot-title">2026 信用卡現金回饋總整理 (最新版)</a>
+                </li>
+                <li class="hot-item">
+                    <span class="hot-num">2</span>
+                    <a href="#" class="hot-title">新手買股票：第一次開戶要注意什麼？</a>
+                </li>
+                <li class="hot-item">
+                    <span class="hot-num">3</span>
+                    <a href="#" class="hot-title">房貸利率又升？首購族應對策略</a>
+                </li>
+                <li class="hot-item">
+                    <span class="hot-num">4</span>
+                    <a href="#" class="hot-title">副業推薦：下班後增加收入的5種方法</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="widget-box">
+            <h3 class="widget-title">📱 手機性價比排行</h3>
+            <div class="ranking-widget">
+                <div class="rank-list">
+                    <a href="#" class="rank-item">
+                        <span class="rank-badge">1</span>
+                        <div class="rank-content">
+                            <span class="rank-title">Galaxy S25</span>
+                            <span class="rank-sub">綜合性能與AI功能最強</span>
+                        </div>
+                        <span class="rank-score">9.8</span>
+                    </a>
+                    <a href="#" class="rank-item">
+                        <span class="rank-badge">2</span>
+                        <div class="rank-content">
+                            <span class="rank-title">iPhone 17 Pro</span>
+                            <span class="rank-sub">攝影與生態系首選</span>
+                        </div>
+                        <span class="rank-score">9.7</span>
+                    </a>
+                    <a href="#" class="rank-item">
+                        <span class="rank-badge">3</span>
+                        <div class="rank-content">
+                            <span class="rank-title">Pixel 10a</span>
+                            <span class="rank-sub">最佳預算拍照手機</span>
+                        </div>
+                        <span class="rank-score">9.4</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget-box">
+            <h3 class="widget-title">📢 最新發布</h3>
+            <div class="latest-mini-item">
+                <img src="https://images.unsplash.com/photo-1616077168712-fc6c788cd4ee?auto=format&fit=crop&w=150" class="latest-mini-thumb" alt="news">
+                <div class="latest-mini-info">
+                    <a href="#"><h4>央行升息半碼，對存款族的影響分析</h4></a>
+                    <span class="latest-mini-date">2小時前</span>
+                </div>
+            </div>
+            <div class="latest-mini-item">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=150" class="latest-mini-thumb" alt="news">
+                <div class="latest-mini-info">
+                    <a href="#"><h4>職場溝通術：如何高情商拒絕同事？</h4></a>
+                    <span class="latest-mini-date">昨天</span>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+</div>
+
+<section style="background: #eee; padding: 60px 0;">
+    <div class="container">
+        <div class="section-title">
+            <h2>🛠️ 實用工具與資源庫</h2>
+            <p>工欲善其事，必先利其器。</p>
+        </div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-header" style="background: #2196F3;">理財心法</div>
+                <div class="tool-body">
+                    <h3>財務健檢表</h3>
+                    <p style="font-size:0.9rem; color:#666;">檢視您的收支狀況與儲蓄潛力。</p>
+                    <a href="#" class="tool-btn">下載 Excel</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-header" style="background: #00BCD4;">旅遊度假</div>
+                <div class="tool-body">
+                    <h3>旅行預算計算</h3>
+                    <p style="font-size:0.9rem; color:#666;">自動估算機票、住宿與餐飲預算。</p>
+                    <a href="#" class="tool-btn">開始計算</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-header" style="background: #FF9800;">消費指南</div>
+                <div class="tool-body">
+                    <h3>優惠追蹤器</h3>
+                    <p style="font-size:0.9rem; color:#666;">一鍵篩選本月最優惠信用卡。</p>
+                    <a href="#" class="tool-btn">立即比較</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container" style="padding: 60px 0;">
+    <div class="faq-box">
+        <h3 style="margin-top:0;">💬 常見問題 FAQ <span style="font-size:0.8rem; font-weight:normal; color:#888;">(點擊展開)</span></h3>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-q">Q: 剛畢業薪水不多，如何開始理財？</div>
+            <div class="faq-a">建議從「記帳」與「強迫儲蓄」開始。每月領薪後，先將 10-20% 轉入另一個不常用的帳戶，剩餘的錢才用於生活開銷（先支付自己原則）。</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-q">Q: 2026 年推薦去哪裡旅遊最划算？</div>
+            <div class="faq-a">考慮到匯率與物價，日本二線城市（如福岡、名古屋）以及東南亞（泰國、越南）仍是性價比首選。</div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // 簡單的 Tab 切換功能
+    function switchTab(category) {
+        // 1. 切換按鈕狀態
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // 2. 切換文章顯示
+        const articles = document.querySelectorAll('.article-card');
+        articles.forEach(article => {
+            if (category === 'all' || article.getAttribute('data-category') === category) {
+                article.style.display = 'flex';
+            } else {
+                article.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
