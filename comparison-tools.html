@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>2026 全球金融工具比較總匯 | 權威外匯、證券、加密貨幣及銀行服務指南</title>
+ <meta name="description" content="2026年最新全球金融平台比較指南。透過大數據分析監管安全性、點差、流動性與入金速度，為您挑選最適合的交易商與銀行服務。">
+ 
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+ <style>
+ /* 1. 全局變數定義 (已修復並擴充) */
+ :root {
+ /* 基礎色調 */
+ --brand-color: #0264C1;
+ --brand-dark: #014b90;
+ --accent-color: #FF9800;
+ --secondary-color: #2EC4B6;
+ --accent-gold: #D4AF37;
+ --success-color: #10b981;
+
+ /* 文字顏色 */
+ --text-main: #1e293b;
+ --text-light: #64748b;
+ --text-white: #ffffff;
+ 
+ /* 背景顏色 */
+ --bg-body: #f8fafc;
+ --bg-card: #ffffff;
+ --bg-light: #f1f5f9;
+ --bg-dark: #001F3F;
+
+ /* 其他 */
+ --border-color: #e2e8f0;
+ --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+ --shadow-md: 0 5px 15px rgba(0,0,0,0.08);
+ --shadow-lg: 0 20px 40px rgba(0,31,63,0.1);
+ --nav-height: 70px;
+ --max-width: 1200px;
+ --transition: all 0.3s ease-in-out;
+ --border-radius-md: 12px;
+ --border-radius-lg: 20px;
+ }
+
+ /* 2. 基礎重置 */
+ * { box-sizing: border-box; }
+ html { scroll-behavior: smooth; }
+ body { 
+ font-family: 'Noto Sans TC', "Microsoft JhengHei", sans-serif; 
+ line-height: 1.7; 
+ color: var(--text-main); 
+ margin: 0; 
+ background: var(--bg-body); 
+ padding-top: var(--nav-height);
+ }
+ .container {
+ width: 90%;
+ max-width: var(--max-width);
+ margin: 0 auto;
+ }
+ a { text-decoration: none; color: inherit; transition: var(--transition); }
+ ul { list-style: none; padding: 0; margin: 0; }
+ img { max-width: 100%; height: auto; display: block; }
+ h1, h2, h3, h4, h5 { margin-top: 0; font-weight: 700; line-height: 1.3; }
+
+ /* 3. 導航欄 (保持不變) */
+ .sticky-header {
+ position: fixed;
+ top: 0; left: 0; width: 100%;
+ height: var(--nav-height);
+ background: rgba(255, 255, 255, 0.95);
+ backdrop-filter: blur(10px);
+ box-shadow: var(--shadow-sm);
+ z-index: 1000;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+ .main-nav {
+ width: 90%;
+ max-width: var(--max-width);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+ .logo { font-size: 1.5rem; font-weight: bold; color: var(--brand-color); }
+ .main-menu { display: flex; gap: 20px; }
+ .menu-item { position: relative; }
+ .menu-item > a {
+ padding: 10px 15px;
+ font-weight: 500;
+ border-radius: 6px;
+ }
+ .menu-item > a:hover, .menu-item.active > a {
+ color: var(--brand-color);
+ background: #eef5fc;
+ }
+ .submenu {
+ opacity: 0;
+ visibility: hidden;
+ position: absolute;
+ top: 100%;
+ left: 50%;
+ transform: translateX(-50%) translateY(10px);
+ background: var(--bg-card);
+ min-width: 200px;
+ box-shadow: var(--shadow-md);
+ border-radius: 8px;
+ padding: 10px 0;
+ transition: 0.3s;
+ z-index: 1001;
+ }
+ .menu-item:hover .submenu {
+ opacity: 1;
+ visibility: visible;
+ transform: translateX(-50%) translateY(0);
+ }
+ .submenu li a {
+ display: block;
+ padding: 10px 20px;
+ font-size: 0.9rem;
+ color: var(--text-main);
+ }
+ .submenu li a:hover {
+ background: var(--brand-color);
+ color: var(--text-white);
+ }
+
+ /* 4. 通用組件 */
+ .section-title { text-align: center; margin: 80px 0 40px; }
+ .section-title h2 { font-size: 2.2rem; color: var(--text-main); margin-bottom: 15px; }
+ .section-title p { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+ .tag { font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; background: var(--bg-light); color: var(--text-light); font-weight: 600; }
+
+ /* ==================================== */
+ /* (A) Hero 模塊 */
+ /* ==================================== */
+ .hero-section {
+ background: linear-gradient(135deg, var(--bg-dark) 0%, #003366 100%);
+ padding: 100px 0 140px;
+ color: var(--text-white);
+ text-align: center;
+ position: relative;
+ overflow: hidden;
+ }
+ .hero-section::after {
+ content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;
+ background: linear-gradient(to top, var(--bg-body), transparent);
+ }
+ .hero-section h1 {
+ font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 25px;
+ background: linear-gradient(to right, #fff, #CBD5E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+ }
+ .hero-summary {
+ max-width: 800px; margin: 0 auto 50px; font-size: 1.15rem; color: #CBD5E1; line-height: 1.8;
+ }
+ .cat-grid {
+ display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; max-width: 1000px; margin: 0 auto;
+ position: relative; z-index: 10;
+ }
+ .cat-item {
+ background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px; border-radius: var(--border-radius-md);
+ border: 1px solid rgba(255,255,255,0.2); color: var(--text-white); font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 10px;
+ }
+ .cat-item i { font-size: 1.5rem; color: var(--accent-color); }
+ .cat-item:hover { background: rgba(255,255,255,0.9); color: var(--brand-color); transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+ /* ==================================== */
+ /* (B) 動態比較模塊 */
+ /* ==================================== */
+ .filter-controls {
+ display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;
+ }
+ .filter-btn {
+ padding: 10px 24px; border-radius: 50px; border: 1px solid var(--border-color); background: var(--bg-card);
+ font-weight: 600; cursor: pointer; transition: var(--transition); color: var(--text-light);
+ }
+ .filter-btn:hover { border-color: var(--brand-color); color: var(--brand-color); }
+ .filter-btn.active { background: var(--brand-color); color: var(--text-white); border-color: var(--brand-color); box-shadow: 0 4px 12px rgba(2,100,193,0.3); }
+
+ .compare-dashboard { display: grid; grid-template-columns: 1fr; gap: 20px; }
+ .compare-card {
+ display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; align-items: center;
+ padding: 25px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); transition: var(--transition);
+ }
+ .compare-card:hover { border-color: var(--brand-color); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+ 
+ .broker-info { display: flex; align-items: center; gap: 15px; }
+ .broker-logo { width: 50px; height: 50px; background: var(--bg-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--brand-color); font-size: 1.2rem;}
+ .broker-name { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+ .broker-tags { display: flex; gap: 5px; margin-top: 5px; }
+ 
+ .metric { text-align: center; }
+ .metric-label { font-size: 0.75rem; color: var(--text-light); display: block; margin-bottom: 4px; }
+ .metric-value { font-weight: 700; font-size: 1.05rem; }
+ .rating { color: var(--accent-color); }
+ 
+ .cta-group { display: flex; flex-direction: column; gap: 8px; }
+ .btn-main { background: var(--success-color); color: var(--text-white); padding: 10px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 0.9rem; }
+ .btn-main:hover { background: #0ca678; }
+ .btn-sub { border: 1px solid var(--brand-color); color: var(--brand-color); padding: 10px; border-radius: 8px; text-align: center; font-weight: 600; font-size: 0.9rem; }
+ .btn-sub:hover { background: var(--brand-color); color: var(--text-white); }
+ 
+ /* ==================================== */
+ /* (C) 權威排行榜 */
+ /* ==================================== */
+ .rankings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 80px; }
+ .rank-box { background: var(--bg-card); border-radius: var(--border-radius-lg); padding: 30px; border: 1px solid var(--border-color); transition: var(--transition); }
+ .rank-box:hover { box-shadow: var(--shadow-md); transform: translateY(-5px); }
+ .rank-box h3 { font-size: 1.25rem; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
+ .rank-box h3 i { color: var(--accent-color); }
+ .rank-list li {
+ display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-color);
+ }
+ .rank-numb { flex-shrink: 0; width: 24px; height: 24px; background: var(--brand-color); color: var(--text-white); font-size: 0.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; }
+ .rank-list li:last-child { border: none; }
+ .rank-name { flex: 1; font-weight: 600; }
+ .rank-val { font-size: 0.85rem; color: var(--text-light); }
+
+ /* ==================================== */
+ /* (D) 專業投資專題 (新版) */
+ /* ==================================== */
+ .topic-hub-section { padding: 80px 0; background-color: var(--bg-body); }
+ .special-zones-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 30px;
+ }
+ .zone-card-alt {
+ background: var(--bg-card);
+ border-radius: var(--border-radius-lg);
+ padding: 40px;
+ display: flex;
+ gap: 25px;
+ border: 1px solid var(--border-color);
+ transition: var(--transition);
+ }
+ .zone-card-alt:hover {
+ transform: translateY(-5px);
+ box-shadow: var(--shadow-lg);
+ border-color: var(--brand-color);
+ }
+ .zone-icon {
+ width: 60px; height: 60px;
+ background: var(--bg-light);
+ border-radius: 15px;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 1.8rem; color: var(--brand-color);
+ flex-shrink: 0;
+ }
+ .zone-info h4 { font-size: 1.25rem; margin-bottom: 12px; color: var(--text-main); }
+ .zone-info p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; }
+ 
+ .article-links { margin-bottom: 25px; border-top: 1px dashed var(--border-color); padding-top: 15px; }
+ .article-links a { 
+ display: block; font-size: 0.9rem; color: var(--text-main); margin-bottom: 8px; 
+ }
+ .article-links a:hover { color: var(--accent-gold); padding-left: 5px; }
+ 
+ .zone-main-link { 
+ font-weight: 700; color: var(--brand-color); font-size: 0.95rem; 
+ display: inline-flex; align-items: center; gap: 5px;
+ }
+ .zone-main-link i { transition: var(--transition); }
+ .zone-main-link:hover i { transform: translateX(3px); }
+
+ /* ==================================== */
+ /* (E) 強強對決 */
+ /* ==================================== */
+ .vs-hub-section { padding: 80px 0; background-color: var(--bg-card); }
+ .section-title-left { margin-bottom: 50px; border-left: 5px solid var(--accent-gold); padding-left: 20px; }
+ .section-title-left h2 { font-size: 2rem; color: var(--text-main); }
+ .section-title-left p { color: var(--text-light); }
+ .vs-grid-modern {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 30px;
+ }
+ .vs-item-modern {
+ background: var(--bg-card);
+ border: 1px solid var(--border-color);
+ border-radius: var(--border-radius-lg);
+ overflow: hidden;
+ transition: var(--transition);
+ }
+ .vs-item-modern:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+ .vs-header {
+ background: var(--bg-dark);
+ padding: 30px 20px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 20px;
+ }
+ .vs-brand {
+ color: var(--text-white);
+ font-weight: 800;
+ font-size: 1.1rem;
+ background: rgba(255,255,255,0.1);
+ padding: 10px 15px;
+ border-radius: 8px;
+ min-width: 100px;
+ text-align: center;
+ }
+ .vs-circle {
+ width: 40px; height: 40px;
+ background: var(--accent-gold);
+ border-radius: 50%;
+ display: flex; align-items: center; justify-content: center;
+ font-weight: 900; font-size: 0.75rem; color: var(--bg-dark);
+ box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.2);
+ flex-shrink: 0;
+ }
+ .vs-body { padding: 30px; }
+ .vs-body h5 { font-size: 1.1rem; margin-bottom: 12px; color: var(--text-main); }
+ .vs-body p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px; height: 60px; overflow: hidden; }
+ .vs-read-btn {
+ display: block; width: 100%; text-align: center;
+ padding: 12px; background: var(--bg-light);
+ border-radius: 10px; color: var(--brand-color);
+ font-weight: 700; font-size: 0.9rem; border: 1px solid var(--border-color);
+ }
+ .vs-read-btn:hover { background: var(--brand-color); color: var(--text-white); }
+ 
+ /* ==================================== */
+ /* (F) 最新文章列表 */
+ /* ==================================== */
+ .article-tabs-container { background: var(--bg-card); padding: 60px 0; }
+ .tab-list { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; border-bottom: 2px solid var(--border-color); }
+ .tab-item { padding: 15px 5px; cursor: pointer; font-weight: 700; color: var(--text-light); position: relative; }
+ .tab-item.active { color: var(--brand-color); }
+ .tab-item.active::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: var(--brand-color); }
+ 
+ .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+ .post-card { border-radius: var(--border-radius-md); overflow: hidden; border: 1px solid var(--border-color); background: var(--bg-card); transition: var(--transition); }
+ .post-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+ .post-img { 
+ width: 100%; height: 180px; 
+ background-color: var(--bg-light);
+ background-image: linear-gradient(45deg, #e2e8f0 25%, transparent 25%), linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e2e8f0 75%), linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+ background-size: 20px 20px;
+ }
+ .post-content { padding: 20px; }
+ .post-content h5 { font-size: 1.1rem; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 2.6em; }
+ .post-content .tag { margin-bottom: 10px; display: inline-block;}
+ .post-date { font-size: 0.8rem; color: var(--text-light); }
+
+ /* ==================================== */
+ /* (G) FAQ */
+ /* ==================================== */
+ .faq-section { padding: 80px 0; }
+ .faq-grid { max-width: 900px; margin: 0 auto; }
+ .faq-item { margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); overflow: hidden; background: var(--bg-card); }
+ .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+ .faq-question:hover { background: var(--bg-light); }
+ .faq-question i { transition: var(--transition); }
+ .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; color: var(--text-light); font-size: 0.95rem; }
+ .faq-item.active .faq-answer { padding: 0 25px 25px; max-height: 500px; }
+ .faq-item.active .faq-question i { transform: rotate(180deg); }
+ .faq-item.active .faq-question { color: var(--brand-color); }
+ 
+ /* ==================================== */
+ /* (H) Footer */
+ /* ==================================== */
+ footer { background: var(--bg-dark); color: var(--text-white); padding: 60px 0; text-align: center; }
+ footer p { margin: 0; color: #a0aec0; }
+ 
+ /* ==================================== */
+ /* (I) Responsive */
+ /* ==================================== */
+ @media (max-width: 1024px) {
+ .cat-grid { grid-template-columns: repeat(3, 1fr); }
+ .rankings-grid, .vs-grid-modern, .article-grid { grid-template-columns: repeat(2, 1fr); }
+ .special-zones-grid { grid-template-columns: 1fr; }
+ .compare-card { grid-template-columns: 1fr 1fr; gap: 20px; }
+ }
+ @media (max-width: 768px) {
+ .hero-section h1 { font-size: 2.5rem; }
+ .cat-grid, .rankings-grid, .vs-grid-modern, .article-grid { grid-template-columns: 1fr; }
+ .compare-card { grid-template-columns: 1fr; text-align: center; }
+ .broker-info { justify-content: center; flex-direction: column; }
+ .tab-list { gap: 10px; font-size: 0.8rem; overflow-x: auto; justify-content: flex-start; padding-bottom: 5px; }
+ .zone-card-alt { flex-direction: column; text-align: center; }
+ }
+ </style>
+</head>
+<body>
+
+<header class="sticky-header">
+ <nav class="main-nav">
+ <a href="#" class="logo">2026 趨勢攻略</a>
+ <ul class="main-menu">
+ <li class="menu-item">
+ <a href="business-news.html">商業新聞</a>
+ <ul class="submenu">
+ <li><a href="#">即時新聞</a></li>
+ <li><a href="#">宏觀經濟</a></li>
+ <li><a href="#">產業動態</a></li>
+ <li><a href="#">新創企業</a></li>
+ <li><a href="#">企業管理</a></li>
+ </ul>
+ </li>
+ <li class="menu-item">
+ <a href="investment.html">投資世界</a>
+ <ul class="submenu">
+ <li><a href="#">股票證券</a></li>
+ <li><a href="#">加密貨幣</a></li>
+ <li><a href="#">外匯交易</a></li>
+ <li><a href="#">基金債券</a></li>
+ <li><a href="#">退休理財 / 保險</a></li>
+ <li><a href="#">即時行情</a></li>
+ </ul>
+ </li>
+ <li class="menu-item">
+ <a href="personal-finance.html">個人金融</a>
+ <ul class="submenu">
+ <li><a href="#">信用卡</a></li>
+ <li><a href="#">私人貸款</a></li>
+ <li><a href="#">銀行戶口</a></li>
+ <li><a href="#">優惠 / 獎勵計劃</a></li>
+ </ul>
+ </li>
+ <li class="menu-item">
+ <a href="real-estate.html">地產市場</a>
+ <ul class="submenu">
+ <li><a href="#">樓市分析</a></li>
+ <li><a href="#">買賣攻略</a></li>
+ <li><a href="#">按揭資訊</a></li>
+ <li><a href="#">海外物業</a></li>
+ <li><a href="#">租金 / 貸款工具</a></li>
+ </ul>
+ </li>
+ <li class="menu-item" >
+ <a href="topics-lifestyle.html">專題 & 生活</a>
+ <ul class="submenu">
+ <li><a href="#">專題洞察</a></li>
+ <li><a href="#">理財心法</a></li>
+ <li><a href="#">消費指南</a></li>
+ <li><a href="#">旅遊休閒</a></li>
+ <li><a href="#">創業職場</a></li>
+ <li><a href="#">新潮趨勢</a></li>
+ </ul>
+ </li>
+ <li class="menu-item">
+ <a href="comparison-tools.html">比較工具</a>
+ <ul class="submenu">
+ <li><a href="#">信用卡比較</a></li>
+ <li><a href="#">交易所比較</a></li>
+ <li><a href="#">外匯券商比較</a></li>
+ <li><a href="#">銀行戶口比較</a></li>
+ <li><a href="#">貸款比較</a></li>
+ <li><a href="#">股票戶口比較</a></li>
+ </ul>
+ </li>
+ </ul>
+ </nav>
+</header>
+<main>
+
+ <section class="hero-section">
+ <div class="container">
+ <h1>全球金融平台比較總匯 (2026)</h1>
+ <p class="hero-summary">
+ 基於資產安全性、市場流動性、平均交易成本及出入金時效四大核心維度，透過實時大數據追蹤全球上千家交易平台。我們致力於為每一位投資者提供透明、公正且具備深度的對比分析，助您在全球資本市場中做出精確選擇。
+ </p>
+ 
+ <div class="cat-grid">
+ <a href="#" class="cat-item"><i class="fa-solid fa-credit-card"></i>信用卡比較</a>
+ <a href="#" class="cat-item"><i class="fa-solid fa-hand-holding-dollar"></i>貸款比較</a>
+ <a href="#" class="cat-item"><i class="fa-brands fa-bitcoin"></i>交易所比較</a>
+ <a href="#" class="cat-item"><i class="fa-solid fa-chart-line"></i>股票戶口比較</a>
+ <a href="#" class="cat-item"><i class="fa-solid fa-building-columns"></i>銀行戶口比較</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="container">
+ <div class="section-title">
+ <h2>外匯 / CFD 交易平台實時看板</h2>
+ <p>支持按監管牌照、點差成本及口碑即時篩選</p>
+ </div>
+ <div class="filter-controls">
+ <button class="filter-btn active" onclick="filterB('all')">全部平台</button>
+ <button class="filter-btn" onclick="filterB('low-spread')">#低點差</button>
+ <button class="filter-btn" onclick="filterB('rookie')">#歡迎新手</button>
+ <button class="filter-btn" onclick="filterB('mt5')">#支持 MT5</button>
+ <button class="filter-btn" onclick="filterB('top-reg')">#監管嚴格</button>
+ </div>
+ <div class="compare-dashboard" id="broker-list">
+ <div class="compare-card low-spread top-reg">
+ <div class="broker-info">
+ <div class="broker-logo">IC</div>
+ <div>
+ <div class="broker-name">IC Markets</div>
+ <div class="broker-tags">
+ <span class="tag">ASIC 監管</span><span class="tag">ECN 模式</span>
+ </div>
+ </div>
+ </div>
+ <div class="metric">
+ <span class="metric-label">綜合評分</span>
+ <span class="metric-value rating"><i class="fa-solid fa-star"></i> 4.9 / 5.0</span>
+ </div>
+ <div class="metric">
+ <span class="metric-label">歐美平均點差</span>
+ <span class="metric-value">0.02 Pips</span>
+ </div>
+ <div class="metric">
+ <span class="metric-label">最低入金</span>
+ <span class="metric-value">$200 USD</span>
+ </div>
+ <div class="cta-group">
+ <a href="#" class="btn-main">立即開戶</a>
+ <a href="#" class="btn-sub">查看評測</a>
+ </div>
+ </div>
+
+ <div class="compare-card rookie mt5">
+ <div class="broker-info">
+ <div class="broker-logo" style="background: #FFF4E5; color: #FF9800;">XM</div>
+ <div>
+ <div class="broker-name">XM Group</div>
+ <div class="broker-tags">
+ <span class="tag">贈金活動</span><span class="tag">教育資源</span>
+ </div>
+ </div>
+ </div>
+ <div class="metric">
+ <span class="metric-label">綜合評分</span>
+ <span class="metric-value rating"><i class="fa-solid fa-star"></i> 4.7 / 5.0</span>
+ </div>
+ <div class="metric">
+ <span class="metric-label">歐美平均點差</span>
+ <span class="metric-value">0.6 Pips</span>
+ </div>
+ <div class="metric">
+ <span class="metric-label">最低入金</span>
+ <span class="metric-value">$5 USD</span>
+ </div>
+ <div class="cta-group">
+ <a href="#" class="btn-main">立即開戶</a>
+ <a href="#" class="btn-sub">查看評測</a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section class="container" style="margin-top: 100px;">
+ <div class="section-title">
+ <h2>2026 年度權威排行榜</h2>
+ <p>基於交易量、監管合規性與用戶真實口碑的綜合排序</p>
+ </div>
+ <div class="rankings-grid">
+ <div class="rank-box">
+ <h3><i class="fa-solid fa-map-location-dot"></i> 香港區最佳平台</h3>
+ <ul class="rank-list">
+ <li><span class="rank-numb">1</span><span class="rank-name">IG Markets</span><span class="rank-val">上市公司</span></li>
+ <li><span class="rank-numb">2</span><span class="rank-name">Saxo Bank</span><span class="rank-val">銀行監管</span></li>
+ <li><span class="rank-numb">3</span><span class="rank-name">OANDA</span><span class="rank-val">極佳口碑</span></li>
+ </ul>
+ </div>
+ <div class="rank-box">
+ <h3><i class="fa-solid fa-chart-pie"></i> 交易量最大商 (全球)</h3>
+ <ul class="rank-list">
+ <li><span class="rank-numb">1</span><span class="rank-name">IC Markets</span><span class="rank-val">$18.5B / 日</span></li>
+ <li><span class="rank-numb">2</span><span class="rank-name">Exness</span><span class="rank-val">$15.2B / 日</span></li>
+ <li><span class="rank-numb">3</span><span class="rank-name">XM</span><span class="rank-val">$12.8B / 日</span></li>
+ </ul>
+ </div>
+ <div class="rank-box">
+ <h3><i class="fa-solid fa-shield-halved"></i> 台灣區最佳推薦</h3>
+ <ul class="rank-list">
+ <li><span class="rank-numb">1</span><span class="rank-name">Exness</span><span class="rank-val">高槓桿</span></li>
+ <li><span class="rank-numb">2</span><span class="rank-name">ThinkMarkets</span><span class="rank-val">中文完善</span></li>
+ <li><span class="rank-numb">3</span><span class="rank-name">Pepperstone</span><span class="rank-val">零點差</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+ <section class="topic-hub-section">
+ <div class="container">
+ <div class="section-title">
+ <h2>專業投資專題</h2>
+ </div>
+ <div class="special-zones-grid">
+ <div class="zone-card-alt">
+ <div class="zone-icon"><i class="fa-solid fa-seedling"></i></div>
+ <div class="zone-info">
+ <h4>新手適合的平台</h4>
+ <p>精選提供微型帳戶、豐富教學資源與直觀介面的交易商，助您穩健起步。</p>
+ <div class="article-links">
+ <a href="#">• 2026新手開戶完全指南</a>
+ <a href="#">• 什麼是模擬帳戶 (Demo)？</a>
+ <a href="#">• 如何在5分鐘內完成實名認證</a>
+ </div>
+ <a href="#" class="zone-main-link">進入專區 <i class="fa-solid fa-chevron-right"></i></a>
+ </div>
+ </div>
+ <div class="zone-card-alt">
+ <div class="zone-icon"><i class="fa-solid fa-chart-line"></i></div>
+ <div class="zone-info">
+ <h4>低點差平台</h4>
+ <p>針對高頻交易與剝頭皮策略，實測全球 ECN 帳戶真實點差與隱藏成本。</p>
+ <div class="article-links">
+ <a href="#">• 全球十大低點差平台排名</a>
+ <a href="#">• 點差 vs 佣金：哪種更省錢？</a>
+ <a href="#">• 如何利用回饋降低交易成本</a>
+ </div>
+ <a href="#" class="zone-main-link">進入專區 <i class="fa-solid fa-chevron-right"></i></a>
+ </div>
+ </div>
+ <div class="zone-card-alt">
+ <div class="zone-icon"><i class="fa-solid fa-shield-halved"></i></div>
+ <div class="zone-info">
+ <h4>受 FCA 監管平台</h4>
+ <p>專注於全球最高監管標準，解析英國 FCA 牌照下的資金保障與賠付計劃。</p>
+ <div class="article-links">
+ <a href="#">• FCA 監管查詢圖解教程</a>
+ <a href="#">• 為什麼 FCA 比離岸監管安全？</a>
+ <a href="#">• 賠付計劃 (FSCS) 申請流程</a>
+ </div>
+ <a href="#" class="zone-main-link">進入專區 <i class="fa-solid fa-chevron-right"></i></a>
+ </div>
+ </div>
+ <div class="zone-card-alt">
+ <div class="zone-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+ <div class="zone-info">
+ <h4>平台如何出入金</h4>
+ <p>全面對比 USDT、本地銀行、電匯與信用卡的到帳時間、手續費與安全性。</p>
+ <div class="article-links">
+ <a href="#">• 各平台出金時效實測榜單</a>
+ <a href="#">• 如何使用加密貨幣入金？</a>
+ <a href="#">• 避免入金失敗的常見誤區</a>
+ </div>
+ <a href="#" class="zone-main-link">進入專區 <i class="fa-solid fa-chevron-right"></i></a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section class="vs-hub-section">
+ <div class="container">
+ <div class="section-title-left">
+ <h2>常見對比：強強對決</h2>
+ <p>還在糾結選哪家？深度解析兩大平台的核心參數、優劣勢與適用人群。</p>
+ </div>
+ <div class="vs-grid-modern">
+ <div class="vs-item-modern">
+ <div class="vs-header">
+ <div class="vs-brand">XM</div>
+ <div class="vs-circle">VS</div>
+ <div class="vs-brand">IC Markets</div>
+ </div>
+ <div class="vs-body">
+ <h5>贈金之王 vs ECN 王者</h5>
+ <p>XM 的活動與教學資源非常適合新手，而 IC Markets 以極低點差受專業交易者青睞...</p>
+ <a href="#" class="vs-read-btn">查看深度對比文章</a>
+ </div>
+ </div>
+ <div class="vs-item-modern">
+ <div class="vs-header">
+ <div class="vs-brand">FXTM</div>
+ <div class="vs-circle">VS</div>
+ <div class="vs-brand">Exness</div>
+ </div>
+ <div class="vs-body">
+ <h5>槓桿與靈活性的終極對決</h5>
+ <p>Exness 的無限槓桿與秒速出金是其核心競爭力，FXTM 則在監管多元性上更具優勢...</p>
+ <a href="#" class="vs-read-btn">查看深度對比文章</a>
+ </div>
+ </div>
+ <div class="vs-item-modern">
+ <div class="vs-header">
+ <div class="vs-brand">IG</div>
+ <div class="vs-circle">VS</div>
+ <div class="vs-brand">OANDA</div>
+ </div>
+ <div class="vs-body">
+ <h5>頂級監管下的巨頭之爭</h5>
+ <p>兩家均受全球多國監管。IG 規模更大、品种更多；OANDA 的數據透明度與 API 接口更強...</p>
+ <a href="#" class="vs-read-btn">查看深度對比文章</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <section class="article-tabs-container">
+ <div class="container">
+ <div class="section-title">
+ <h2>最新深度文章</h2>
+ </div>
+ <div class="tab-list">
+ <div class="tab-item active" onclick="switchTab(this, 'all')">外匯/CFD</div>
+ <div class="tab-item" onclick="switchTab(this, 'card')">信用卡</div>
+ <div class="tab-item" onclick="switchTab(this, 'loan')">貸款比較</div>
+ <div class="tab-item" onclick="switchTab(this, 'crypto')">交易所</div>
+ <div class="tab-item" onclick="switchTab(this, 'stock')">股票戶口</div>
+ </div>
+ <div class="article-grid" id="article-list">
+ <article class="post-card">
+ <div class="post-img"></div>
+ <div class="post-content">
+ <span class="tag">VS 對比</span>
+ <h5>XM vs IC Markets：新手與專業交易者的終極選擇</h5>
+ <div class="post-date">2026年1月15日</div>
+ </div>
+ </article>
+ <article class="post-card">
+ <div class="post-img"></div>
+ <div class="post-content">
+ <span class="tag">深度評測</span>
+ <h5>Exness 出金實測：為什麼它是亞洲用戶的首選？</h5>
+ <div class="post-date">2026年1月12日</div>
+ </div>
+ </article>
+ <article class="post-card">
+ <div class="post-img"></div>
+ <div class="post-content">
+ <span class="tag">監管分析</span>
+ <h5>什麼是 FCA 監管？如何驗證您的交易商是否合規？</h5>
+ <div class="post-date">2026年1月05日</div>
+ </div>
+ </article>
+ </div>
+ </div>
+ </section>
+ <section class="faq-section">
+ <div class="container">
+ <div class="section-title">
+ <h2>金融工具常見問題 (FAQ)</h2>
+ </div>
+ <div class="faq-grid">
+ <div class="faq-item">
+ <div class="faq-question">外匯交易平台怎麼選？ <i class="fa-solid fa-chevron-down"></i></div>
+ <div class="faq-answer"><p>選擇平台時應優先考慮「監管牌照」（如英國 FCA, 澳洲 ASIC）、交易成本（點差與佣金）以及資金安全（隔離帳戶）。一個好的平台能讓您的投資事半功倍。</p></div>
+ </div>
+ <div class="faq-item active">
+ <div class="faq-question">低點差和零佣金哪個好？ <i class="fa-solid fa-chevron-down"></i></div>
+ <div class="faq-answer"><p>這取決於您的交易頻率。高頻交易者（如剝頭皮）適合「低點差ECN帳戶」，總成本更低；而長線交易者則可以選擇「無佣金Standard帳戶」，方便計算。</p></div>
+ </div>
+ <div class="faq-item">
+ <div class="faq-question">國內用戶能合法使用這些平台嗎？ <i class="fa-solid fa-chevron-down"></i></div>
+ <div class="faq-answer"><p>大多數受國際頂級監管的平台均接受全球個人投資者開戶，屬於個人海外投資行為。我們推薦的平台都經過嚴格篩選，但請務必自行確認當地稅務與法律細則。</p></div>
+ </div>
+ </div>
+ </div>
+ </section>
+</main>
+
+<footer>
+ <div class="container">
+ <p>&copy; 2026 投資理財攻略 - 全球權威金融比較中心</p>
+ </div>
+</footer>
+
+<script>
+ // FAQ Toggle
+ document.querySelectorAll('.faq-question').forEach(q => {
+ q.addEventListener('click', () => {
+ // 先關閉其他已打開的項目
+ document.querySelectorAll('.faq-item.active').forEach(item => {
+ if (item !== q.parentElement) {
+ item.classList.remove('active');
+ }
+ });
+ // 切換當前點擊的項目
+ q.parentElement.classList.toggle('active');
+ });
+ });
+
+ // 簡單的 Filter 邏輯 (B)
+ function filterB(cat) {
+ const cards = document.querySelectorAll('#broker-list .compare-card');
+ document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+ event.target.classList.add('active');
+ 
+ cards.forEach(card => {
+ card.style.display = 'none'; // 先隱藏
+ if (cat === 'all' || card.classList.contains(cat)) {
+ // 使用 grid 來顯示，以匹配 CSS
+ setTimeout(() => { card.style.display = 'grid'; }, 10);
+ }
+ });
+ }
+
+ // Tab 切換 (E)
+ function switchTab(el, type) {
+ document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+ el.classList.add('active');
+ // 這裡通常會加上 AJAX 讀取不同類別的文章列表
+ // 為了演示，我們僅 console log
+ console.log("切換至文章類別：" + type);
+ }
+</script>
+
+</body>
+</html>
